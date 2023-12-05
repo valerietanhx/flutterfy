@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
+import querystring from "querystring";
 
 function generateRandomStateString(length) {
   let text = "";
@@ -21,11 +22,14 @@ export async function GET() {
 
   return NextResponse.redirect(
     new URL(
-      "https://accounts.spotify.com/authorize?response_type=code" +
-        `&client_id=${CLIENT_ID}` +
-        `&scope=${encodeURIComponent(scopes.join(" "))}` +
-        `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
-        `&state=${state}`
+      "https://accounts.spotify.com/authorize?" +
+        querystring.stringify({
+          response_type: "code",
+          client_id: CLIENT_ID,
+          scope: scopes.join(" "),
+          redirect_uri: REDIRECT_URI,
+          state: state,
+        })
     )
   );
 }
