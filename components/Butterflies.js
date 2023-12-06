@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 export default function Butterflies(props) {
   const access_token = props.access_token;
 
-  const [data, setData] = useState(null);
+  const [data, setData] = useState("Loading...");
 
   useEffect(() => {
     let ignore = false;
@@ -34,7 +34,6 @@ export default function Butterflies(props) {
 
   return (
     <>
-      <h1>Authorised! I'm in Butterflies!</h1>
       {/* to be turned into butterfly viz*/}
       <p>{JSON.stringify(data)}</p>
     </>
