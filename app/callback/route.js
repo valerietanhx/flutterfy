@@ -2,7 +2,6 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import querystring from "querystring";
 
-
 export async function GET(req) {
   const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = process.env;
   const stateKey = "spotify_auth_state";
@@ -16,7 +15,8 @@ export async function GET(req) {
 
   if (state === null || state !== storedState) {
     // figure out error handling
-    return NextResponse.redirect(new URL("/#?error=state_mismatch", baseUrl));
+    throw new Error("An error occurred during authorisation.");
+    // return NextResponse.redirect(new URL("/#?error=state_mismatch", baseUrl));
   } else {
     cookies().delete(stateKey);
     const authOptions = {
@@ -34,26 +34,22 @@ export async function GET(req) {
       }),
     };
 
-    try {
-      const res = await fetch(
-        "https://accounts.spotify.com/api/token",
-        authOptions
-      );
-      const data = await res.json();
+    const res = await fetch(
+      "https://accounts.spotify.com/api/token",
+      authOptions
+    );
+    if (!res.ok) throw new Error("An error occurred during authorisation.");
+    const data = await res.json();
 
-      return NextResponse.redirect(
-        new URL(
-          "/#" +
-            querystring.stringify({
-              access_token: data.access_token,
-              refresh_token: data.refresh_token,
-            }),
-          baseUrl
-        )
-      );
-    } catch (error) {
-      // figure out error handling
-      console.error("An error occurred during authorisation.");
-    }
+    return NextResponse.redirect(
+      new URL(
+        "/#" +
+          querystring.stringify({
+            access_token: data.access_token,
+            refresh_token: data.refresh_token,
+          }),
+        baseUrl
+      )
+    );
   }
 }
