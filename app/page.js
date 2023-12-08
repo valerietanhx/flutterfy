@@ -13,13 +13,7 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      {
-        hash ? (
-          <Butterflies access_token={access_token} />
-        ) : (
-          <Login/>
-        )
-      }
+      {hash ? <Butterflies access_token={access_token} /> : <Login />}
     </main>
   );
 }
