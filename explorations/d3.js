@@ -16,7 +16,7 @@ const svg = d3
 
 d3.json("data.json").then(function (data) {
   data.forEach(function (obj, idx) {
-    obj.rank = 20 - idx + 1;
+    obj.rank = 20 - idx;
   });
 
   const svg = d3
@@ -40,7 +40,7 @@ d3.json("data.json").then(function (data) {
 
   const colour = d3
     .scaleLinear()
-    .domain([0, 0.7])
+    .domain([0, 1])
     .range(["#ffaacc", "#ffffcc"]);
 
   svg
@@ -56,11 +56,32 @@ d3.json("data.json").then(function (data) {
       return y(d.energy);
     })
     .attr("r", function (d) {
-      return size(d.rank);
+      return size(d.rank); // figure out what this does
     })
     .style("fill", function (d) {
       return colour(d.acousticness);
     })
     .attr("stroke", "grey")
     .style("stroke-width", "0.5px");
+
+  // svg
+  //   .append("g")
+  //   .selectAll("wingTopLeft")
+  //   .data(data)
+  //   .enter()
+  //   .append("ellipse")
+  //   .attr("cx", function (d) {
+  //     return x(d.danceability);
+  //   })
+  //   .attr("cy", function (d) {
+  //     return y(d.energy);
+  //   })
+  //   .attr("rx", function (d) {
+  //     return size(-0.4);
+  //   })
+  //   .attr("ry", function (d) {
+  //     return size(0.9);
+  //   });
+
+  // cx="100" cy="50" rx="100" ry="50"
 });
