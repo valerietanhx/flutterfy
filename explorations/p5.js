@@ -1,7 +1,13 @@
+// move to utils
+
 const CANVAS_SIZE = 600;
+const SIZE_BASE_TOP = 12;
+const SIZE_BASE_BOTTOM = (2 / 3) * SIZE_BASE_TOP;
+const SHADOW_OFFSET = 2;
 
 // colour palette: https://loading.io/color/feature/Spectral-10/
 const innerGradientPalette = [
+  // potentially change palette so that all pairings of colours look better
   // dark
   "#9e0142", // 0 < x <= 0.1
   "#d53e4f", // 0.1 < x <= 0.2
@@ -32,40 +38,54 @@ const outerGradientPalette = [
 
 // https://artlist.io/blog/music-bpm/
 function convertTempo(tempo) {
-  if (tempo <= 70) {
-    // slow
-    return 0.01;
-  } else if (tempo <= 90) {
-    // medium-slow
-    return 0.015;
-  } else if (tempo <= 110) {
-    // medium
-    return 0.02;
-  } else if (tempo <= 130) {
-    // medium-fast
-    return 0.025;
-  } else {
-    // fast
-    return 0.03;
-  }
+  return tempo <= 70
+    ? 0.01 // slow
+    : tempo <= 90
+    ? 0.015 // medium-slow
+    : tempo <= 110
+    ? 0.02 // medium
+    : tempo <= 130
+    ? 0.025 // medium-fast
+    : 0.03; // fast
+}
+
+let butterflies = [];
+
+function preload() {
+  // for testing purposes
+  songs = loadJSON("data.json");
 }
 
 function setup() {
   canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
   canvas.parent("viz");
   ctx = canvas.drawingContext;
-  b1 = new Butterfly(0.5, 0.5, 0.295, 0.485, 111.826);
-  b2 = new Butterfly(0.8, 0.2, 0.1, 0.817, 96.045);
+
+  for (let i = 0; i < Object.keys(songs).length; i++) {
+    song = songs[i];
+    butterflies.push(
+      new Butterfly(
+        i,
+        song.danceability,
+        song.energy,
+        song.acousticness,
+        song.valence,
+        song.tempo
+      )
+    );
+  }
 }
 
 function draw() {
   background(50);
-  b1.display();
-  b2.display();
+  butterflies.forEach(function (butterfly) {
+    butterfly.display();
+  });
 }
 
 class Butterfly {
-  constructor(danceability, energy, acousticness, valence, tempo) {
+  constructor(rank0, danceability, energy, acousticness, valence, tempo) {
+    this.size = 20 - rank0;
     this.cx = map(danceability, 0, 1, 0, CANVAS_SIZE);
     this.cy = map(energy, 0, 1, 0, CANVAS_SIZE);
     this.innerGradient = acousticness;
@@ -74,19 +94,70 @@ class Butterfly {
     this.yoff = 0;
   }
 
-  display() {
+  shadow(wingspan) {
+    // argh
     push();
 
     strokeWeight(0);
     const grad = ctx.createRadialGradient(
       this.cx,
       this.cy,
-      0.5,
+      0.1,
       this.cx,
       this.cy,
-      60
+      wingspan
     );
+    grad.addColorStop(0, "rgba(50, 50, 50, 25)");
+    grad.addColorStop(0.6, "rgba(50, 50, 50, 0)");
+    ctx.fillStyle = grad;
 
+    let da = PI / 300;
+    let dx = 0.02;
+
+    beginShape();
+    let xoff = 0;
+
+    for (let a = PI / 2; a <= (3 * PI) / 2; a += da) {
+      // top
+      let r = sin(2 * a) * (SIZE_BASE_TOP + this.size * 3);
+      let x = sin(this.yoff) * r * cos(a);
+      let y = r * sin(a);
+      xoff -= dx;
+      vertex(x + this.cx, y + this.cy + SHADOW_OFFSET);
+    }
+
+    for (let a = -PI / 2; a <= PI / 2; a += da) {
+      // bottom
+      let r = sin(2 * a) * (SIZE_BASE_BOTTOM + this.size * 2);
+      let x = sin(this.yoff) * r * cos(a);
+      let y = r * sin(a);
+      xoff += dx;
+      vertex(x + this.cx, y + this.cy + SHADOW_OFFSET);
+    }
+
+    endShape();
+
+    if (Math.abs(sin(this.yoff)) > 0.5) {
+      // varied for more realistic flapping effect
+      this.yoff += this.speed / 2;
+    } else {
+      this.yoff += this.speed;
+    }
+
+    pop();
+  }
+
+  display() {
+    this.shadow(SIZE_BASE_TOP + this.size * 3);
+    push();
+
+    strokeWeight(0);
+    const grad = ctx.createLinearGradient(
+      this.cx,
+      this.cy - 50, // numbers rn are by eye, need to update based on size (rank)
+      this.cx,
+      this.cy + 50
+    );
     grad.addColorStop(
       0,
       innerGradientPalette[Math.max(0, Math.ceil(this.innerGradient * 10) - 1)]
@@ -103,26 +174,33 @@ class Butterfly {
     beginShape();
     let xoff = 0;
 
-    for (let a = -PI / 2; a <= PI / 2; a += da) {
-      let n = 0.2;
-      let r = sin(2 * a) * map(n, 0, 1, 45, 75);
-      let x = sin(this.yoff) * r * cos(a);
-      let y = r * sin(a);
-      xoff += dx;
-      vertex(x + this.cx, y + this.cy);
-    }
-
     for (let a = PI / 2; a <= (3 * PI) / 2; a += da) {
-      let n = 1.2;
-      let r = sin(2 * a) * map(n, 0, 1, 45, 75);
+      // top
+      let r = sin(2 * a) * (SIZE_BASE_TOP + this.size * 3);
       let x = sin(this.yoff) * r * cos(a);
       let y = r * sin(a);
       xoff -= dx;
       vertex(x + this.cx, y + this.cy);
     }
 
+    for (let a = -PI / 2; a <= PI / 2; a += da) {
+      // bottom
+      let r = sin(2 * a) * (SIZE_BASE_BOTTOM + this.size * 2);
+      let x = sin(this.yoff) * r * cos(a);
+      let y = r * sin(a);
+      xoff += dx;
+      vertex(x + this.cx, y + this.cy);
+    }
+
     endShape();
-    this.yoff += this.speed;
+
+    if (Math.abs(sin(this.yoff)) > 0.5) {
+      // varied for more realistic flapping effect
+      this.yoff += this.speed / 2;
+    } else {
+      this.yoff += this.speed;
+    }
+
     pop();
   }
 }
