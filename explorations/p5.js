@@ -95,7 +95,6 @@ class Butterfly {
   }
 
   shadow(wingspan) {
-    // argh
     push();
 
     strokeWeight(0);

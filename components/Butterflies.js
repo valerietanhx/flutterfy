@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import P5jsContainer from "@/components/P5jsContainer";
+import sketch from "@/components/Sketch";
 
 export default function Butterflies(props) {
   const access_token = props.access_token;
@@ -65,15 +67,11 @@ export default function Butterflies(props) {
 
   return (
     <>
-      {/* to be turned into butterfly viz*/}
-      {topSongs
-        ? Object.keys(topSongs).map((k, i) => (
-            <p key={i}>
-              {topSongs[k]["id"]} {topSongs[k]["name"]}
-            </p>
-          ))
-          // make this some kind of full-fledged loading screen?
-        : "Loading..."}
+      {audioFeatures ? (
+        <P5jsContainer sketch={sketch} data={audioFeatures} />
+      ) : (
+        <></>
+      )}
     </>
   );
 }
