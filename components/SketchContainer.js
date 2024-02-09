@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 // https://aleksati.net/posts/how-to-use-p5js-with-nextjs-in-2024
-export default function P5jsContainer({ sketch, data }) {
+export default function SketchContainer({ sketch, data }) {
   const parentRef = useRef();
 
   const [isMounted, setIsMounted] = useState(false);

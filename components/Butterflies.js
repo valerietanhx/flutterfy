@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import P5jsContainer from "@/components/P5jsContainer";
-import sketch from "@/components/Sketch";
+import SketchContainer from "@/components/SketchContainer";
+import Sketch from "@/components/Sketch";
 
 export default function Butterflies(props) {
   const access_token = props.access_token;
@@ -68,7 +68,7 @@ export default function Butterflies(props) {
   return (
     <>
       {audioFeatures ? (
-        <P5jsContainer sketch={sketch} data={audioFeatures} />
+        <SketchContainer sketch={Sketch} data={audioFeatures} />
       ) : (
         <></>
       )}
