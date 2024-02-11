@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import useSpotifyAPI from "@/utils/useSpotifyAPI";
 import SketchContainer from "@/components/SketchContainer";
 import Sketch from "@/components/Sketch";
 
@@ -10,60 +10,22 @@ export default function Butterflies(props) {
     },
   };
 
-  // messy, to abstract out:
-  // https://react.dev/learn/reusing-logic-with-custom-hooks
-  const [topSongs, setTopSongs] = useState(null);
-
-  useEffect(() => {
-    let ignore = false;
-
-    fetch("https://api.spotify.com/v1/me/top/tracks", options)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("An error occurred during fetching.");
-        } else {
-          return response;
-        }
-      })
-      .then((response) => response.json())
-      .then((json) => {
-        if (!ignore) {
-          setTopSongs(json["items"]);
-        }
-      });
-    return () => {
-      ignore = true;
-    };
-  }, []);
-
-  const [audioFeatures, setAudioFeatures] = useState(null);
-
-  useEffect(() => {
-    if (topSongs) {
-      let ignore = false;
-      const ids = Object.keys(topSongs)
-        .map((d) => topSongs[d]["id"])
-        .join();
-
-      fetch(`https://api.spotify.com/v1/audio-features?ids=${ids}`, options)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("An error occurred during fetching.");
-          } else {
-            return response;
-          }
-        })
-        .then((response) => response.json())
-        .then((json) => {
-          if (!ignore) {
-            setAudioFeatures(json["audio_features"]);
-          }
-        });
-      return () => {
-        ignore = true;
-      };
-    }
-  }, [topSongs]);
+  const topSongs = useSpotifyAPI(
+    "https://api.spotify.com/v1/me/top/tracks",
+    options,
+    "items",
+    []
+  );
+  const audioFeatures = useSpotifyAPI(
+    topSongs
+      ? `https://api.spotify.com/v1/audio-features?ids=${Object.keys(topSongs)
+          .map((d) => topSongs[d]["id"])
+          .join()}`
+      : "",
+    options,
+    "audio_features",
+    [topSongs]
+  );
 
   return (
     <>
