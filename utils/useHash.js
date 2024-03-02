@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+// https://github.com/vercel/next.js/discussions/49465
+
 const getHash = () =>
   typeof window !== "undefined"
     ? decodeURIComponent(window.location.hash.replace("#", ""))

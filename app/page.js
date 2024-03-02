@@ -1,10 +1,9 @@
 "use client";
 
-import styles from "./page.module.css";
 import querystring from "querystring";
 import useHash from "@/utils/useHash";
 import Butterflies from "@/components/Butterflies";
-import Login from "@/components/Login";
+import Login from "@/components/Login/Login";
 
 export default function Home() {
   const hash = useHash();
@@ -12,7 +11,7 @@ export default function Home() {
   // const refresh_token = querystring.parse(hash)["refresh_token"]
 
   return (
-    <main className={styles.main}>
+    <main>
       {hash ? <Butterflies access_token={access_token} /> : <Login />}
     </main>
   );

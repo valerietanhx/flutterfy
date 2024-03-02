@@ -11,7 +11,7 @@ export default function Butterflies(props) {
   };
 
   const topSongs = useSpotifyAPI(
-    "https://api.spotify.com/v1/me/top/tracks",
+    "https://api.spotify.com/v1/me/top/tracks?time_range=short_term",
     options,
     "items",
     []

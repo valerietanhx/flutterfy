@@ -1,3 +1,9 @@
+/* global variables */
+
+:root {
+  --spotify-green: #1ed760;
+}
+
 /* reset */
 
 a,
@@ -64,6 +70,12 @@ textarea {
 button,
 input[type="submit"] {
   cursor: pointer;
+}
+
+/* global styling */
+
+body {
+  padding: 4rem;
 }
 
 /* :root {

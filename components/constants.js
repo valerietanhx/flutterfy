@@ -4,7 +4,7 @@ export const SIZE_BASE_BOTTOM = (2 / 3) * SIZE_BASE_TOP;
 export const SHADOW_OFFSET = 2;
 
 // colour palette: https://loading.io/color/feature/Spectral-10/
-export const innerGradientPalette = [
+export const topGradientPalette = [
   // potentially change palette so that all pairings of colours look better
   // dark
   "#9e0142", // 0 < x <= 0.1
@@ -20,7 +20,7 @@ export const innerGradientPalette = [
 ];
 
 // colour palette: https://coolors.co/df015e-e27985-f8a58b-fed6ae-ffefc2-f2f9c8-d6eed2-99d6c3-5ea7d4-8376bc
-export const outerGradientPalette = [
+export const bottomGradientPalette = [
   // light
   "#df015e",
   "#e27985",
@@ -47,6 +47,6 @@ export function convertTempo(tempo) {
     : 0.03; // fast
 }
 
-export function calculateGradientIndex(value) {
+export function getGradientIndex(value) {
   return Math.max(0, Math.ceil(value * 10) - 1);
 }

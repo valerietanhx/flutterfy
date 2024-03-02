@@ -3,10 +3,10 @@ import {
   SIZE_BASE_TOP,
   SIZE_BASE_BOTTOM,
   SHADOW_OFFSET,
-  innerGradientPalette,
-  outerGradientPalette,
+  topGradientPalette,
+  bottomGradientPalette,
   convertTempo,
-  calculateGradientIndex,
+  getGradientIndex,
 } from "@/components/constants"; // not sure if should move elsewhere
 
 export default function Sketch(p5, parentRef, data) {
@@ -45,8 +45,8 @@ export default function Sketch(p5, parentRef, data) {
       this.wingspan = SIZE_BASE_TOP + this.size * 3;
       this.cx = p5.map(danceability, 0, 1, 0, CANVAS_SIZE);
       this.cy = p5.map(energy, 0, 1, 0, CANVAS_SIZE);
-      this.innerGradient = acousticness;
-      this.outerGradient = valence;
+      this.topGradient = acousticness;
+      this.bottomGradient = valence;
       this.speed = convertTempo(tempo);
       this.yoff = 0;
     }
@@ -124,11 +124,11 @@ export default function Sketch(p5, parentRef, data) {
       );
       grad.addColorStop(
         0,
-        innerGradientPalette[calculateGradientIndex(this.innerGradient)]
+        topGradientPalette[getGradientIndex(this.topGradient)]
       );
       grad.addColorStop(
         1,
-        outerGradientPalette[calculateGradientIndex(this.outerGradient)]
+        bottomGradientPalette[getGradientIndex(this.bottomGradient)]
       );
       ctx.fillStyle = grad;
 
