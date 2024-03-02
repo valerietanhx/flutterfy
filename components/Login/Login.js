@@ -10,19 +10,43 @@ export default function Login() {
   const router = useRouter();
   return (
     <>
-      <h1 className={`${instrumentSerif.className} ${styles.title}`}>
-        Flutterfy
-      </h1>
-      <h2 className={`${instrumentSans.className} ${styles.description}`}>
-        Visualise your Spotify top songs as butterflies.
-      </h2>
-      <button
-        className={styles.loginButton}
-        type="button"
-        onClick={() => router.push("/login")}
-      >
-        Login to Spotify
-      </button>
+      <pre className={styles.butterfly}>
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣶⣿⣿⡿⠟⠛⠉⠉⠙⠻⣿⣿⣿⣿⣆
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣶⣿⡿⠟⢻⣿⣦⣤⣤⣤⣤⣤⣤⣿⣿⣿⣿⣿
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣿⣿⣿⣿⣦⣶⠿⢿⣿⡉⠁⠀⠀⠀⢨⣿⣿⣿⣿⣿
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⠿⠛⠉⢁⣀⣠⡽⠷⣿⣿⠟⠒⠒⢶⣶⣾⣿⣿⣿⣿⠏
+        ⠈⠓⢤⡀⠀⠘⢦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⡟⠉⣠⠴⠒⠉⠉⠀⠀⢀⣀⣼⣿⣄⣀⣀⣿⣿⣿⣿⣿⣿⠏⠀
+        ⠀⠀⠀⠉⠳⢄⡈⠳⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣛⡿⠁⠀⠀⠀⢀⣠⡶⠚⠉⠁⠀⠈⢿⡀⠀⣽⣿⣿⣿⣿⡟⠁⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠉⠳⢄⡑⢦⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⠋⠀⠉⠀⠀⢀⣠⣴⣿⣷⣶⣶⣦⣤⣤⣤⣾⣷⣤⣿⣿⣿⣿⡿⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢷⣄⠀⠀⠀⠀⠀⣠⣾⣿⣿⠃⠀⠀⣠⣴⣾⠿⠟⠛⢿⣿⣟⠉⠉⠉⠉⠻⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣙⣧⡀⠀⠀⣴⣿⣿⠋⠀⢀⣴⡿⠛⠁⠀⠀⣀⣠⠴⠿⠿⣷⣶⠶⠶⠶⠾⠿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣷⣾⣿⣿⠁⢸⣀⣿⠟⠀⢀⣠⡶⠛⠉⣀⣀⣀⣀⣠⣿⣦⡀⠀⠀⠀⠸⣿⣿⣿⣿⡄⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⢿⣿⣿⣿⡇⠀⢨⣿⡿⠖⠛⠛⠛⠾⣏⣉⣁⠀⠀⠀⠈⠙⣿⡟⠋⠛⠒⠲⠿⣿⣿⣿⣧⡀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣄⣀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠛⠒⠾⣿⣿⣤⣀⡀⠀⠀⣿⣿⣿⣿⡇⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣿⣿⠿⣦⣍⠙⠻⠶⢶⣤⣤⣤⣤⡤⠤⠤⣴⣿⣧⠀⠀⠉⠙⠺⣿⣿⣿⣿⠃⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⡇⠘⢿⡝⠲⣄⠀⠙⢷⣌⡙⠲⢤⣀⠀⢹⡿⠛⠶⣤⣀⣼⣿⣿⣿⣿⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠉⠹⡄⠀⠹⣦⡈⠙⢦⣀⠈⠻⣦⣀⠈⠙⢿⣷⣄⠀⠀⠉⢻⣿⣿⣿⡇⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢦⡀⠈⢻⣄⠀⠙⠷⣄⠀⠙⠳⣄⣀⣿⠉⠛⢦⣴⣿⣿⣿⣿⠇⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠢⣄⠙⣷⡀⠀⠈⢷⡀⠀⠈⢿⣷⣀⠀⣸⣿⣿⣿⣿⠁⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠾⣿⣦⠀⠀⠹⣦⣠⡾⠈⢹⣷⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠓⠦⠤⠈⠿⠤⠴⠿⠿⠿⠿⠃⠀⠀⠀⠀⠀⠀⠀⠀
+      </pre>
+      <main className={styles.container}>
+        <h1 className={`${instrumentSerif.className} ${styles.title}`}>
+          Flutterfy
+        </h1>
+        <h2 className={`${instrumentSans.className} ${styles.description}`}>
+          Visualise your Spotify top songs as butterflies.
+        </h2>
+        <button
+          className={styles.loginButton}
+          type="button"
+          onClick={() => router.push("/login")}
+        >
+          Login to Spotify
+        </button>
+      </main>
     </>
   );
 }

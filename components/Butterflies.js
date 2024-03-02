@@ -28,12 +28,12 @@ export default function Butterflies(props) {
   );
 
   return (
-    <>
+    <main>
       {audioFeatures ? (
         <SketchContainer sketch={Sketch} data={audioFeatures} />
       ) : (
         <></>
       )}
-    </>
+    </main>
   );
 }

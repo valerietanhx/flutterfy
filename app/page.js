@@ -10,9 +10,5 @@ export default function Home() {
   const access_token = querystring.parse(hash)["access_token"];
   // const refresh_token = querystring.parse(hash)["refresh_token"]
 
-  return (
-    <main>
-      {hash ? <Butterflies access_token={access_token} /> : <Login />}
-    </main>
-  );
+  return <>{hash ? <Butterflies access_token={access_token} /> : <Login />}</>;
 }
