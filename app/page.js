@@ -2,7 +2,7 @@
 
 import querystring from "querystring";
 import useHash from "@/utils/useHash";
-import Butterflies from "@/components/Butterflies";
+import Butterflies from "@/components/Butterflies/Butterflies";
 import Login from "@/components/Login/Login";
 
 export default function Home() {

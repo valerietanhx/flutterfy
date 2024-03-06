@@ -1,0 +1,10 @@
+.summary {
+  background-color: #badbed;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+.details {
+  background-color: pink;
+  padding: 1rem 2rem;
+}
