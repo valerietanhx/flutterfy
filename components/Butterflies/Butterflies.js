@@ -13,7 +13,7 @@ export default function Butterflies(props) {
   };
 
   const topSongs = useSpotifyAPI(
-    "https://api.spotify.com/v1/me/top/tracks?time_range=short_term",
+    "https://api.spotify.com/v1/me/top/tracks",
     options,
     "items",
     []
@@ -33,7 +33,7 @@ export default function Butterflies(props) {
     audioFeatures && (
       <main className={styles.container}>
         <SketchContainer sketch={Sketch} data={audioFeatures} />
-        <Content />
+        <Content songs={topSongs}/>
       </main>
     )
   );
