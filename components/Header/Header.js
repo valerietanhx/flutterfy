@@ -7,7 +7,7 @@ const instrumentSerif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
 export default function Header() {
   return (
     <div className={styles.header}>
-      <div className={`${instrumentSerif.className} ${styles.siteName}`}>flutterfy</div>
+      <div className={`${instrumentSerif.className} ${styles.siteName}`}>Flutterfy</div>
       <LogoutButton />
     </div>
   );
