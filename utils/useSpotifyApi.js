@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function useSpotifyAPI(url, options, key, dependencies) {
+export default function useSpotifyApi(url, options, key, dependencies) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
