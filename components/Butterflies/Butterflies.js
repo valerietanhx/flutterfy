@@ -1,10 +1,11 @@
-"use client";
+"use client"
 
 import styles from "@/components/Butterflies/butterflies.module.css";
 import SketchContainer from "@/components/SketchContainer";
-import useSpotifyAPI from "@/utils/useSpotifyAPI";
 import Sketch from "@/components/Sketch";
 import Content from "@/components/Content/Content";
+import Header from "../Header/Header";
+import useSpotifyAPI from "@/utils/useSpotifyAPI";
 
 export default function Butterflies(props) {
   const access_token = props.access_token;
@@ -34,10 +35,13 @@ export default function Butterflies(props) {
 
   return (
     audioFeatures && (
-      <main className={styles.container}>
-        <SketchContainer sketch={Sketch} data={audioFeatures} />
-        <Content songs={topSongs} />
-      </main>
+      <>
+        <Header />
+        <main className={styles.container}>
+          <SketchContainer sketch={Sketch} data={audioFeatures} />
+          <Content songs={topSongs} />
+        </main>
+      </>
     )
   );
 }

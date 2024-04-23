@@ -12,7 +12,7 @@ function LoginButton() {
       type="button"
       onClick={() => router.push("/login")}
     >
-      Login to Spotify
+      Log into Spotify
     </button>
   );
 }
