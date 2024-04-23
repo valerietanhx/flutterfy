@@ -4,7 +4,7 @@ import styles from "@/components/Butterflies/butterflies.module.css";
 import SketchContainer from "@/components/SketchContainer";
 import Sketch from "@/components/Sketch";
 import Content from "@/components/Content/Content";
-import Header from "../Header/Header";
+import Header from "@/components/Header/Header";
 import useSpotifyApi from "@/utils/useSpotifyApi";
 
 export default function Butterflies(props) {

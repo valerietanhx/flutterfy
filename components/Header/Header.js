@@ -1,4 +1,4 @@
-import LogoutButton from "../LogoutButton/LogoutButton";
+import LogoutButton from "@/components/LogoutButton/LogoutButton";
 import { Instrument_Serif } from "next/font/google";
 import styles from "@/components/Header/header.module.css";
 
