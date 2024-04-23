@@ -1,14 +1,15 @@
-"use client";
-
-import querystring from "querystring";
-import useHash from "@/utils/useHash";
+import { cookies } from "next/headers";
 import Butterflies from "@/components/Butterflies/Butterflies";
 import Login from "@/components/Login/Login";
 
 export default function Home() {
-  const hash = useHash();
-  const access_token = querystring.parse(hash)["access_token"];
-  // const refresh_token = querystring.parse(hash)["refresh_token"]
+  const access_token = cookies().get("access_token")
+    ? cookies().get("access_token").value
+    : null;
 
-  return <>{hash ? <Butterflies access_token={access_token} /> : <Login />}</>;
+  return (
+    <>
+      {access_token ? <Butterflies access_token={access_token} /> : <Login />}
+    </>
+  );
 }

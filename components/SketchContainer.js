@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useRef, useState } from "react";
 
 // https://aleksati.net/posts/how-to-use-p5js-with-nextjs-in-2024

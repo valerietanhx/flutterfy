@@ -20,7 +20,7 @@ export default function Content(props) {
         Your top songs as butterflies!
       </h1>
       {pairs.map((pair) => (
-        <p>{pair}</p>
+        <p key={pair}>{pair}</p>
       ))}
       <Accordion />
     </div>

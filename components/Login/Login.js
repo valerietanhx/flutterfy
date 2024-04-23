@@ -1,11 +1,10 @@
 import styles from "@/components/Login/login.module.css";
-import { useRouter } from "next/navigation";
 import { Instrument_Serif } from "next/font/google";
+import LoginButton from "@/components/LoginButton/LoginButton";
 
 const instrumentSerif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
 
 export default function Login() {
-  const router = useRouter();
   return (
     <>
       <pre className={styles.butterfly}>
@@ -37,13 +36,7 @@ export default function Login() {
         <h2 className={styles.description}>
           Visualise your Spotify top songs as butterflies.
         </h2>
-        <button
-          className={styles.loginButton}
-          type="button"
-          onClick={() => router.push("/login")}
-        >
-          Login to Spotify
-        </button>
+        <LoginButton />
       </main>
     </>
   );

@@ -13,12 +13,12 @@ function generateRandomStateString(length) {
 }
 
 export async function GET() {
-  const { CLIENT_ID, REDIRECT_URI } = process.env;
-  const stateKey = "spotify_auth_state";
+  const { CLIENT_ID, BASE_URL } = process.env;
+
   const state = generateRandomStateString(16);
   const scopes = ["user-top-read"];
 
-  cookies().set(stateKey, state);
+  cookies().set("spotify_auth_state", state);
 
   return NextResponse.redirect(
     new URL(
@@ -27,7 +27,7 @@ export async function GET() {
           response_type: "code",
           client_id: CLIENT_ID,
           scope: scopes.join(" "),
-          redirect_uri: REDIRECT_URI,
+          redirect_uri: BASE_URL + "/callback",
           state: state,
         })
     )

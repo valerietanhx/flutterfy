@@ -1,6 +1,8 @@
+"use client";
+
 import styles from "@/components/Butterflies/butterflies.module.css";
-import useSpotifyAPI from "@/utils/useSpotifyAPI";
 import SketchContainer from "@/components/SketchContainer";
+import useSpotifyAPI from "@/utils/useSpotifyAPI";
 import Sketch from "@/components/Sketch";
 import Content from "@/components/Content/Content";
 
@@ -18,6 +20,7 @@ export default function Butterflies(props) {
     "items",
     []
   );
+
   const audioFeatures = useSpotifyAPI(
     topSongs
       ? `https://api.spotify.com/v1/audio-features?ids=${Object.keys(topSongs)
@@ -33,7 +36,7 @@ export default function Butterflies(props) {
     audioFeatures && (
       <main className={styles.container}>
         <SketchContainer sketch={Sketch} data={audioFeatures} />
-        <Content songs={topSongs}/>
+        <Content songs={topSongs} />
       </main>
     )
   );
