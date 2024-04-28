@@ -15,7 +15,7 @@ export default function Content(props) {
   const pairs = titles.map((title, idx) => title + " — " + artists[idx]);
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1 className={`${instrumentSerif.className} ${styles.title}`}>
         Your top songs as butterflies!
       </h1>

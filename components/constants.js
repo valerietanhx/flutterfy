@@ -1,4 +1,4 @@
-export const CANVAS_SIZE = 500;
+export const CANVAS_SIZE = 550;
 export const SIZE_BASE_TOP = 12;
 export const SIZE_BASE_BOTTOM = (2 / 3) * SIZE_BASE_TOP;
 export const SHADOW_OFFSET = 2;
