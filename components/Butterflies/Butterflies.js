@@ -5,7 +5,7 @@ import SketchContainer from "@/components/SketchContainer/SketchContainer";
 import Sketch from "@/components/Sketch/Sketch";
 import Content from "@/components/Content/Content";
 import Header from "@/components/Header/Header";
-import useSpotifyApi from "@/utils/useSpotifyApi";
+import useSpotifyApi from "@/hooks/useSpotifyApi";
 
 export default function Butterflies(props) {
   const access_token = props.access_token;
