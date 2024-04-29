@@ -1,5 +1,4 @@
 import {
-  CANVAS_SIZE,
   SIZE_BASE_TOP,
   SIZE_BASE_BOTTOM,
   SHADOW_OFFSET,
@@ -9,13 +8,13 @@ import {
   getGradientIndex,
 } from "@/components/Sketch/constants";
 
-export default function Sketch(p5, parentRef, data) {
+export default function Sketch(p5, parentRef, initCanvasSize, data) {
   let canvas;
   let ctx;
   let butterflies = [];
 
   p5.setup = () => {
-    canvas = p5.createCanvas(CANVAS_SIZE, CANVAS_SIZE).parent(parentRef);
+    canvas = p5.createCanvas(initCanvasSize, initCanvasSize).parent(parentRef);
     ctx = canvas.drawingContext;
     for (let i = 0; i < data.length; i++) {
       let song = data[i];
@@ -34,6 +33,25 @@ export default function Sketch(p5, parentRef, data) {
 
   p5.draw = () => {
     p5.background(240);
+
+    // because the butterflies need to be inited in setup,
+    // but that means they are inited with the original canvas size
+    // which in turn affects their size / position on the canvas
+    // we add this chunk of code to draw() so that they are redrawn
+    // with the correct proportions whenever resizeCanvas is called
+    // inelegant, would be good to find a cleaner way!
+    for (let i = 0; i < data.length; i++) {
+      let song = data[i];
+      butterflies[i].cx = p5.map(
+        song.danceability,
+        0,
+        1,
+        0,
+        parentRef.offsetWidth
+      );
+      butterflies[i].cy = p5.map(song.energy, 0, 1, 0, parentRef.offsetWidth);
+    }
+
     butterflies.forEach(function (butterfly) {
       butterfly.display();
     });
@@ -47,8 +65,8 @@ export default function Sketch(p5, parentRef, data) {
     constructor(rank0, danceability, energy, acousticness, valence, tempo) {
       this.size = 20 - rank0;
       this.wingspan = SIZE_BASE_TOP + this.size * 3;
-      this.cx = p5.map(danceability, 0, 1, 0, CANVAS_SIZE);
-      this.cy = p5.map(energy, 0, 1, 0, CANVAS_SIZE);
+      this.cx = p5.map(danceability, 0, 1, 0, parentRef.offsetWidth);
+      this.cy = p5.map(energy, 0, 1, 0, parentRef.offsetWidth);
       this.topGradient = acousticness;
       this.bottomGradient = valence;
       this.speed = convertTempo(tempo);

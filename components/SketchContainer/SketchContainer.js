@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import styles from "@/components/SketchContainer/sketchContainer.module.css";
 
 // https://aleksati.net/posts/how-to-use-p5js-with-nextjs-in-2024
 export default function SketchContainer({ sketch, data }) {
@@ -27,7 +28,7 @@ export default function SketchContainer({ sketch, data }) {
         const p5 = (await import("p5")).default;
         // initialize the sketch
         new p5((p) => {
-          sketch(p, parentRef.current, data);
+          sketch(p, parentRef.current, Math.min(550, 0.8 * window.innerWidth), data);
           p5instance = p;
         });
       } catch (error) {
@@ -39,12 +40,12 @@ export default function SketchContainer({ sketch, data }) {
 
     // when the component unmounts, remove the p5 instance.
     return () => {
-      if (p5instance) {
+      if (p5instance) { 
         p5instance.remove();
       }
     };
   }, [isMounted, sketch]);
 
   // parent div of the p5 canvas
-  return <div ref={parentRef}></div>;
+  return <div ref={parentRef} className={styles.container}></div>;
 }
