@@ -1,8 +1,8 @@
 "use client"
 
 import styles from "@/components/Butterflies/butterflies.module.css";
-import SketchContainer from "@/components/SketchContainer";
-import Sketch from "@/components/Sketch";
+import SketchContainer from "@/components/SketchContainer/SketchContainer";
+import Sketch from "@/components/Sketch/Sketch";
 import Content from "@/components/Content/Content";
 import Header from "@/components/Header/Header";
 import useSpotifyApi from "@/utils/useSpotifyApi";

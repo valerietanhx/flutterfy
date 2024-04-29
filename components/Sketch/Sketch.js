@@ -7,7 +7,7 @@ import {
   bottomGradientPalette,
   convertTempo,
   getGradientIndex,
-} from "@/components/constants"; // not sure if should move elsewhere
+} from "@/components/Sketch/constants";
 
 export default function Sketch(p5, parentRef, data) {
   let canvas;
@@ -37,6 +37,10 @@ export default function Sketch(p5, parentRef, data) {
     butterflies.forEach(function (butterfly) {
       butterfly.display();
     });
+  };
+
+  p5.windowResized = () => {
+    p5.resizeCanvas(parentRef.offsetWidth, parentRef.offsetWidth);
   };
 
   class Butterfly {
