@@ -11,6 +11,18 @@ export default function LogoutButton() {
       type="button"
       onClick={() => {
         router.push("/logout");
+        const url = "https://accounts.spotify.com/logout";
+        const side = window.outerHeight / 2;
+        const spotifyLogoutWindow = window.open(
+          url,
+          "Log out of Spotify",
+          `toolbar=no, location=no, width=${side},height=${side},top=${
+            (screen.height - side) / 3 // account for browser header
+          },left=${(screen.width - side) / 2}`
+        );
+        setTimeout(() => {
+          spotifyLogoutWindow.close();
+        }, 3000);
         router.refresh();
       }}
     >
