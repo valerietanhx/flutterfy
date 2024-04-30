@@ -22,7 +22,7 @@ export default function LogoutButton() {
         );
         setTimeout(() => {
           spotifyLogoutWindow.close();
-        }, 3000);
+        }, 2000);
         router.refresh();
       }}
     >
