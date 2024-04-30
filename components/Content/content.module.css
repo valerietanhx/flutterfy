@@ -1,7 +1,22 @@
 .container {
   width: min(550px, 80vw);
+  container-type: inline-size;
 }
 
 .title {
   font-size: 50px;
+  margin-bottom: 1rem;
+}
+
+.songContainer {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem;
+}
+
+@container (max-width: 449px) {
+  .songContainer {
+    grid-template-columns: 1fr;
+  }
 }
