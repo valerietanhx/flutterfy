@@ -20,7 +20,12 @@ export default function Content(props) {
       </h1>
       <div className={styles.songContainer}>
         {titles.map((title, idx) => (
-          <Song rank={idx + 1} title={title} artist={artists[idx]} />
+          <Song
+            key={idx + 1}
+            rank={idx + 1}
+            title={title}
+            artist={artists[idx]}
+          />
         ))}
       </div>
       <Accordion />

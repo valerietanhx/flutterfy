@@ -40,12 +40,11 @@ export async function GET(req) {
     if (!res.ok) throw new Error("An error occurred during authorisation.");
     const data = await res.json();
 
-    const access_token = data.access_token;
-    const refresh_token = data.refresh_token;
+    const accessToken = data.access_token;
+    const refreshToken = data.refresh_token;
 
-    // TODO: actually use refresh_token
-    cookies().set("access_token", access_token, { maxAge: 3600, secure: true });
-    cookies().set("refresh_token", refresh_token, { secure: true });
+    cookies().set("access_token", accessToken, { secure: true });
+    cookies().set("refresh_token", refreshToken, { secure: true });
 
     return NextResponse.redirect(new URL("/", BASE_URL));
   }
