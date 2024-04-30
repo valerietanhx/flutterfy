@@ -1,4 +1,4 @@
-.notFoundButton {
+.errorButton {
   background-color: #f0f0f0;
   text-align: center;
   width: fit-content;
@@ -9,6 +9,6 @@
   transition: 0.3s;
 }
 
-.notFoundButton:hover {
+.errorButton:hover {
   filter: brightness(0.8);
 }

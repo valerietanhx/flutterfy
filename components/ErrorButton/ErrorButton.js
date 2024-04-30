@@ -1,17 +1,17 @@
 "use client";
 
-import styles from "@/components/NotFoundButton/notFoundButton.module.css";
+import styles from "@/components/ErrorButton/errorButton.module.css";
 import { useRouter } from "next/navigation";
 
-export default function NotFoundButton() {
+export default function ErrorButton(props) {
   const router = useRouter();
   return (
     <button
-      className={styles.notFoundButton}
+      className={styles.errorButton}
       type="button"
       onClick={() => router.push("/")}
     >
-      Take me home
+      {props.children}
     </button>
   );
 }
