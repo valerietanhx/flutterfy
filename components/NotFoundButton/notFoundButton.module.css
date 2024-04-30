@@ -1,8 +1,9 @@
 .notFoundButton {
   background-color: #f0f0f0;
   text-align: center;
+  width: fit-content;
+  margin: auto;
   padding: 16px 32px;
-  margin-top: 20px;
   border-radius: 400px;
   font-size: 16px;
   transition: 0.3s;
