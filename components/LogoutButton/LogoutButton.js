@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import styles from "@/components/LogoutButton/logoutButton.module.css";
 
-function LogoutButton() {
+export default function LogoutButton() {
   const router = useRouter();
   return (
     <button
@@ -18,5 +18,3 @@ function LogoutButton() {
     </button>
   );
 }
-
-export default LogoutButton;

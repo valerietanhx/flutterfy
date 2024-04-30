@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import styles from "@/components/LoginButton/loginButton.module.css";
 
-function LoginButton() {
+export default function LoginButton() {
   const router = useRouter();
 
   return (
@@ -16,5 +16,3 @@ function LoginButton() {
     </button>
   );
 }
-
-export default LoginButton;
