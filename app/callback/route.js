@@ -1,6 +1,5 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import querystring from "querystring";
 
 export async function GET(req) {
   const { CLIENT_ID, CLIENT_SECRET, BASE_URL } = process.env;
@@ -26,7 +25,7 @@ export async function GET(req) {
           "Basic " +
           Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64"),
       },
-      body: querystring.stringify({
+      body: new URLSearchParams({
         code: code,
         redirect_uri: BASE_URL + "/callback",
         grant_type: "authorization_code",
