@@ -82,6 +82,10 @@ canvas {
   border-radius: 12px;
 }
 
+a {
+  text-decoration: underline;
+}
+
 /* not-found */
 
 .notFoundContainer {
