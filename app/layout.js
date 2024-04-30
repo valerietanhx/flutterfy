@@ -7,7 +7,7 @@ const instrumentSans = Instrument_Sans({ weight: "400", subsets: ["latin"] });
 export const metadata = {
   title: "Flutterfy",
   description:
-    "A website that visualises your Spotify top songs as butterflies.",
+    "A website that visualises your Spotify top tracks as butterflies.",
 };
 
 export default function RootLayout({ children }) {

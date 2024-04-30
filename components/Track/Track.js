@@ -1,6 +1,6 @@
-import styles from "@/components/Song/song.module.css";
+import styles from "@/components/Track/track.module.css";
 
-export default function Song(props) {
+export default function Track(props) {
   const rank = props.rank;
   const title = props.title;
   const artist = props.artist;

@@ -34,7 +34,7 @@ export default function Login() {
           Flutterfy
         </h1>
         <h2 className={styles.description}>
-          Visualise your Spotify top songs as butterflies.
+          Visualise your Spotify top tracks as butterflies.
         </h2>
         <LoginButton />
       </main>

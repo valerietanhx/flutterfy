@@ -17,15 +17,15 @@ export default function Sketch(p5, parentRef, initCanvasSize, data) {
     canvas = p5.createCanvas(initCanvasSize, initCanvasSize).parent(parentRef);
     ctx = canvas.drawingContext;
     for (let i = 0; i < data.length; i++) {
-      let song = data[i];
+      let track = data[i];
       butterflies.push(
         new Butterfly(
           i,
-          song.danceability,
-          song.energy,
-          song.acousticness,
-          song.valence,
-          song.tempo
+          track.danceability,
+          track.energy,
+          track.acousticness,
+          track.valence,
+          track.tempo
         )
       );
     }
@@ -41,15 +41,15 @@ export default function Sketch(p5, parentRef, initCanvasSize, data) {
     // with the correct proportions whenever resizeCanvas is called
     // inelegant, would be good to find a cleaner way!
     for (let i = 0; i < data.length; i++) {
-      let song = data[i];
+      let track = data[i];
       butterflies[i].cx = p5.map(
-        song.danceability,
+        track.danceability,
         0,
         1,
         0,
         parentRef.offsetWidth
       );
-      butterflies[i].cy = p5.map(song.energy, 0, 1, 0, parentRef.offsetWidth);
+      butterflies[i].cy = p5.map(track.energy, 0, 1, 0, parentRef.offsetWidth);
     }
 
     butterflies.forEach(function (butterfly) {

@@ -1,14 +1,14 @@
 import styles from "@/components/Content/content.module.css";
 import Accordion from "@/components/Accordion/Accordion";
-import Song from "@/components/Song/Song";
+import Track from "@/components/Track/Track";
 import { Instrument_Serif } from "next/font/google";
 
 const instrumentSerif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
 
 export default function Content(props) {
-  const songs = props.songs;
-  const titles = songs.map((song) => song["name"]);
-  const artists = songs
+  const tracks = props.tracks;
+  const titles = tracks.map((track) => track["name"]);
+  const artists = tracks
     .map((s) => s["artists"])
     .map((artists) => artists.map((artist) => artist.name))
     .map((names) => names.join(", "));
@@ -16,11 +16,11 @@ export default function Content(props) {
   return (
     <div className={styles.container}>
       <h1 className={`${instrumentSerif.className} ${styles.title}`}>
-        Your top songs as butterflies!
+        Your top tracks as butterflies!
       </h1>
-      <div className={styles.songContainer}>
+      <div className={styles.trackContainer}>
         {titles.map((title, idx) => (
-          <Song
+          <Track
             key={idx + 1}
             rank={idx + 1}
             title={title}

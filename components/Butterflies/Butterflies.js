@@ -15,7 +15,7 @@ export default function Butterflies(props) {
     },
   };
 
-  const topSongs = useSpotifyApi(
+  const topTracks = useSpotifyApi(
     "https://api.spotify.com/v1/me/top/tracks",
     options,
     "items",
@@ -23,14 +23,14 @@ export default function Butterflies(props) {
   );
 
   const audioFeatures = useSpotifyApi(
-    topSongs
-      ? `https://api.spotify.com/v1/audio-features?ids=${Object.keys(topSongs)
-          .map((d) => topSongs[d]["id"])
+    topTracks
+      ? `https://api.spotify.com/v1/audio-features?ids=${Object.keys(topTracks)
+          .map((d) => topTracks[d]["id"])
           .join()}`
       : "",
     options,
     "audio_features",
-    [topSongs]
+    [topTracks]
   );
 
   return (
@@ -39,7 +39,7 @@ export default function Butterflies(props) {
         <Header />
         <main className={styles.container}>
           <SketchContainer sketch={Sketch} data={audioFeatures} />
-          <Content songs={topSongs} />
+          <Content tracks={topTracks} />
         </main>
       </>
     )
