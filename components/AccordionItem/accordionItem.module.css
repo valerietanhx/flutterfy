@@ -4,7 +4,22 @@
   cursor: pointer;
 }
 
-.details {
+.content {
   background-color: pink;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 2s ease-in-out; /* not sure why there's a delay... */
+}
+
+.content::before, .content::after {
+  content: "";
+  display: block;
+  background-color: inherit;
+  height: 1rem;
+}
+
+.show {
+  max-height: 9999px;
+  transition: all 2s ease-in-out;
 }
