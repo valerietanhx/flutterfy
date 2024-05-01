@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import styles from "@/components/LogoutButton/logoutButton.module.css";
+import { logout } from "@/actions/logout";
 
 export default function LogoutButton() {
   const router = useRouter();
@@ -10,7 +11,7 @@ export default function LogoutButton() {
       className={styles.logoutButton}
       type="button"
       onClick={() => {
-        router.push("/logout");
+        logout();
         const url = "https://accounts.spotify.com/logout";
         const side = window.outerHeight / 2;
         const spotifyLogoutWindow = window.open(
