@@ -5,6 +5,7 @@ import styles from "@/components/SketchContainer/sketchContainer.module.css";
 import Sketch from "@/components/Sketch/Sketch";
 
 // https://aleksati.net/posts/how-to-use-p5js-with-nextjs-in-2024
+// with many annotations for learning purposes
 export default function SketchContainer({ data }) {
   const parentRef = useRef();
 
@@ -16,18 +17,22 @@ export default function SketchContainer({ data }) {
   }, []);
 
   useEffect(() => {
-    // if not mounted, do nothing yet.
+    // without this line (i.e. without all the mounting-related code),
+    // the canvas will render multiple times
     if (!isMounted) return;
 
-    // our current p5 sketch instance
     let p5instance;
 
-    // function that loads p5 and creates the sketch inside the div.
+    // https://stackoverflow.com/questions/74265321/uncaught-typeerror-destroy-is-not-a-function-error-in-react
+    // useEffect does not like async in its declaration
     const initP5 = async () => {
       try {
-        // import p5 client-side
+        // https://shivanshbakshi.dev/blog/p5-react/integrate-p5-with-react/
+        // "we only want to import p5 when the window object is defined.
+        // To do so, we will import it inside a useEffect callback.
+        // This callback function is only run during rendering, so
+        // it won't be run on the server."
         const p5 = (await import("p5")).default;
-        // initialize the sketch
         new p5((p) => {
           Sketch(
             p,
@@ -38,13 +43,15 @@ export default function SketchContainer({ data }) {
           p5instance = p;
         });
       } catch (error) {
-        console.log(error);
+        throw new Error(
+          "An error occurred while rendering the butterfly visualisation."
+        );
       }
     };
 
     initP5();
 
-    // when the component unmounts, remove the p5 instance.
+    // when the component unmounts, remove the p5 instance
     return () => {
       if (p5instance) {
         p5instance.remove();
@@ -52,6 +59,5 @@ export default function SketchContainer({ data }) {
     };
   }, [isMounted, Sketch]);
 
-  // parent div of the p5 canvas
   return <div ref={parentRef} className={styles.container}></div>;
 }
