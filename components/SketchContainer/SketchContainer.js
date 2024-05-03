@@ -8,6 +8,7 @@ import Sketch from "@/components/Sketch/Sketch";
 // with many annotations for learning purposes
 export default function SketchContainer({ data }) {
   const canvasRef = useRef();
+  const utilsRef = useRef();
   const buttonRef = useRef();
 
   const [isMounted, setIsMounted] = useState(false);
@@ -38,6 +39,7 @@ export default function SketchContainer({ data }) {
           Sketch(
             p,
             canvasRef.current,
+            utilsRef.current,
             buttonRef.current,
             Math.min(550, 0.8 * window.innerWidth),
             data
@@ -65,6 +67,8 @@ export default function SketchContainer({ data }) {
     <div className={styles.container}>
       <div ref={canvasRef}></div>
       <div ref={buttonRef} className={styles.buttons}></div>
+      <div ref={utilsRef} className={styles.utils}></div>
+      {/* TODO: rework UI */}
     </div>
   );
 }

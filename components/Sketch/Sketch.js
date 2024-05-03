@@ -8,8 +8,8 @@ import {
   getGradientIndex,
 } from "@/components/Sketch/constants";
 
-export default function Sketch(p5, canvasRef, buttonRef, initCanvasSize, data) {
-  let canvas, ctx, imageButton, gifButton;
+export default function Sketch(p5, canvasRef, utilsRef, buttonRef, initCanvasSize, data) {
+  let canvas, ctx, colourPicker, imageButton, gifButton;
   let butterflies = [];
 
   p5.setup = () => {
@@ -29,12 +29,17 @@ export default function Sketch(p5, canvasRef, buttonRef, initCanvasSize, data) {
       );
     }
 
+    let p = p5
+      .createP("Background colour:&nbsp;")
+      .style("display", "inline-block")
+      .parent(utilsRef);
+
+    colourPicker = p5.createColorPicker("#f0f0f0").parent(utilsRef);
+
     imageButton = p5.createButton("Download as image").parent(buttonRef);
-    imageButton.position(0, 0, "relative");
     imageButton.mousePressed(() => p5.saveCanvas("flutterfy.png"));
 
     gifButton = p5.createButton("Download as gif").parent(buttonRef);
-    gifButton.position(0, 0, "relative");
     gifButton.mousePressed(() =>
       // TODO: style
       p5.saveGif("flutterfy.gif", 6, { notificationDuration: 5 })
@@ -42,7 +47,8 @@ export default function Sketch(p5, canvasRef, buttonRef, initCanvasSize, data) {
   };
 
   p5.draw = () => {
-    p5.background(240);
+    let c = colourPicker.color();
+    p5.background(c);
 
     // because the butterflies need to be inited in setup,
     // but that means they are inited with the original canvas size

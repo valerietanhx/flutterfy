@@ -5,6 +5,11 @@
   gap: 0.5rem;
 }
 
+.utils {
+  display: flex;
+  align-items: center;
+}
+
 .buttons {
   display: flex;
   justify-content: center;

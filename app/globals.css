@@ -84,7 +84,7 @@ input[type="submit"] {
 /* global styling */
 
 body {
-  padding: 2rem;
+  padding: 2rem 4rem;
 }
 
 canvas {
