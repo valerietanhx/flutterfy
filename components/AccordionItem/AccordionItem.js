@@ -8,22 +8,26 @@ import { useState, useRef, useEffect } from "react";
 // lots of learning to be done here!
 export default function AccordionItem(props) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const titleRef = useRef(null);
   const collapseRef = useRef(null);
   const contentRef = useRef(null);
 
   useEffect(() => {
     const { height } = contentRef.current.getBoundingClientRect();
     collapseRef.current.style.maxHeight = `${height}px`;
+    titleRef.current.style.borderRadius = "12px 12px 0 0";
     if (!isExpanded) {
       requestAnimationFrame(() => {
         collapseRef.current.style.maxHeight = "0px";
+        titleRef.current.style.borderRadius = "12px";
+        // not very clean, to fix
       });
     }
   }, [isExpanded]);
 
   return (
     <div>
-      <div className={styles.title} onClick={() => setIsExpanded(!isExpanded)}>
+      <div ref={titleRef} className={styles.title} onClick={() => setIsExpanded(!isExpanded)}>
         {props.title}
       </div>
       <div ref={collapseRef} className={styles.contentWrapper}>

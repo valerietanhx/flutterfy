@@ -1,11 +1,14 @@
 .title {
-  background-color: #badbed;
+  background-color: #78c3fb;
   padding: 1rem 2rem;
   cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
 }
 
 .contentWrapper {
-  background-color: pink;
+  background-color: #d7edfe;
+  border-radius: 0 0 12px 12px;
   max-height: 0;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
