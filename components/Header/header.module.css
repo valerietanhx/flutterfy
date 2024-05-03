@@ -1,11 +1,11 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
 }
 
 .siteName {
-    font-size: 30px;
+  font-size: 30px;
 }

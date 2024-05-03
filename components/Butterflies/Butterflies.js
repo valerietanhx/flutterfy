@@ -4,6 +4,7 @@ import styles from "@/components/Butterflies/butterflies.module.css";
 import SketchContainer from "@/components/SketchContainer/SketchContainer";
 import Content from "@/components/Content/Content";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 import LogoutButton from "@/components/LogoutButton/LogoutButton";
 import useSpotifyApi from "@/hooks/useSpotifyApi";
 
@@ -43,6 +44,7 @@ export default function Butterflies(props) {
           <SketchContainer data={audioFeatures} />
           <Content tracks={topTracks} />
         </main>
+        <Footer />
       </>
     )
   );
