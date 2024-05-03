@@ -22,14 +22,20 @@ export default function AccordionItem(props) {
         collapseRef.current.style.maxHeight = "0px";
         collapseRef.current.style.padding = "0 2rem";
         titleRef.current.style.borderRadius = "12px";
-        // not very clean, to fix
+        // TODO: make transition cleaner. right now u can see a gap between
+        // the title and content as the title's border radius changes
+        // when the accordion item is closing
       });
     }
   }, [isExpanded]);
 
   return (
     <div>
-      <div ref={titleRef} className={styles.title} onClick={() => setIsExpanded(!isExpanded)}>
+      <div
+        ref={titleRef}
+        className={styles.title}
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
         {props.title}
       </div>
       <div ref={collapseRef} className={styles.contentWrapper}>
