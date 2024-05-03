@@ -4,26 +4,13 @@
   cursor: pointer;
 }
 
-.content {
+.contentWrapper {
   background-color: pink;
-  padding: 0 2rem;
   max-height: 0;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
 }
 
-.content::before,
-.content::after {
-  content: "";
-  display: block;
-  background-color: inherit;
-  height: 1rem;
-}
-
-.show {
-  /* reasonable height given content, else transition time will be inaccurate 
-  but looks wonky for accordions of different heights 
-  try to find a better solution, might need to overhaul accordion creation method */
-  max-height: 400px;
-  transition: all 0.5s ease-in-out;
+.content {
+  padding: 1rem 2rem;
 }
