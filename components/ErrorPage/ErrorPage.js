@@ -1,5 +1,3 @@
-"use client";
-
 import { Instrument_Serif } from "next/font/google";
 import ErrorButton from "@/components/ErrorButton/ErrorButton";
 import Header from "@/components/Header/Header";
