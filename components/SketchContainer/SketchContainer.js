@@ -7,7 +7,8 @@ import Sketch from "@/components/Sketch/Sketch";
 // https://aleksati.net/posts/how-to-use-p5js-with-nextjs-in-2024
 // with many annotations for learning purposes
 export default function SketchContainer({ data }) {
-  const parentRef = useRef();
+  const canvasRef = useRef();
+  const buttonRef = useRef();
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -36,7 +37,8 @@ export default function SketchContainer({ data }) {
         new p5((p) => {
           Sketch(
             p,
-            parentRef.current,
+            canvasRef.current,
+            buttonRef.current,
             Math.min(550, 0.8 * window.innerWidth),
             data
           );
@@ -59,5 +61,10 @@ export default function SketchContainer({ data }) {
     };
   }, [isMounted, Sketch]);
 
-  return <div ref={parentRef} className={styles.container}></div>;
+  return (
+    <div className={styles.container}>
+      <div ref={canvasRef}></div>
+      <div ref={buttonRef} className={styles.buttons}></div>
+    </div>
+  );
 }

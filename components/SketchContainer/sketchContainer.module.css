@@ -1,3 +1,26 @@
 .container {
   width: min(550px, 80vw);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.buttons > button {
+  background-color: var(--light-blue);
+  text-align: center;
+  padding: 16px 0;
+  width: 100%;
+  border-radius: 400px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.buttons > button:hover {
+  filter: brightness(0.8);
 }

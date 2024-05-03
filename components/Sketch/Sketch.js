@@ -8,13 +8,12 @@ import {
   getGradientIndex,
 } from "@/components/Sketch/constants";
 
-export default function Sketch(p5, parentRef, initCanvasSize, data) {
-  let canvas;
-  let ctx;
+export default function Sketch(p5, canvasRef, buttonRef, initCanvasSize, data) {
+  let canvas, ctx, imageButton, gifButton;
   let butterflies = [];
 
   p5.setup = () => {
-    canvas = p5.createCanvas(initCanvasSize, initCanvasSize).parent(parentRef);
+    canvas = p5.createCanvas(initCanvasSize, initCanvasSize).parent(canvasRef);
     ctx = canvas.drawingContext;
     for (let i = 0; i < data.length; i++) {
       let track = data[i];
@@ -29,6 +28,17 @@ export default function Sketch(p5, parentRef, initCanvasSize, data) {
         )
       );
     }
+
+    imageButton = p5.createButton("Download as image").parent(buttonRef);
+    imageButton.position(0, 0, "relative");
+    imageButton.mousePressed(() => p5.saveCanvas("flutterfy.png"));
+
+    gifButton = p5.createButton("Download as gif").parent(buttonRef);
+    gifButton.position(0, 0, "relative");
+    gifButton.mousePressed(() =>
+      // TODO: style
+      p5.saveGif("flutterfy.gif", 6, { notificationDuration: 5 })
+    );
   };
 
   p5.draw = () => {
@@ -47,9 +57,9 @@ export default function Sketch(p5, parentRef, initCanvasSize, data) {
         0,
         1,
         0,
-        parentRef.offsetWidth
+        canvasRef.offsetWidth
       );
-      butterflies[i].cy = p5.map(track.energy, 0, 1, 0, parentRef.offsetWidth);
+      butterflies[i].cy = p5.map(track.energy, 0, 1, 0, canvasRef.offsetWidth);
     }
 
     butterflies.forEach(function (butterfly) {
@@ -58,15 +68,15 @@ export default function Sketch(p5, parentRef, initCanvasSize, data) {
   };
 
   p5.windowResized = () => {
-    p5.resizeCanvas(parentRef.offsetWidth, parentRef.offsetWidth);
+    p5.resizeCanvas(canvasRef.offsetWidth, canvasRef.offsetWidth);
   };
 
   class Butterfly {
     constructor(rank0, danceability, energy, acousticness, valence, tempo) {
       this.size = 20 - rank0;
       this.wingspan = SIZE_BASE_TOP + this.size * 3;
-      this.cx = p5.map(danceability, 0, 1, 0, parentRef.offsetWidth);
-      this.cy = p5.map(energy, 0, 1, 0, parentRef.offsetWidth);
+      this.cx = p5.map(danceability, 0, 1, 0, canvasRef.offsetWidth);
+      this.cy = p5.map(energy, 0, 1, 0, canvasRef.offsetWidth);
       this.topGradient = acousticness;
       this.bottomGradient = valence;
       this.speed = convertTempo(tempo);
