@@ -8,7 +8,14 @@ import {
   getGradientIndex,
 } from "@/components/Sketch/constants";
 
-export default function Sketch(p5, canvasRef, utilsRef, buttonRef, initCanvasSize, data) {
+export default function Sketch(
+  p5,
+  canvasRef,
+  utilsRef,
+  buttonRef,
+  initCanvasSize,
+  data
+) {
   let canvas, ctx, colourPicker, imageButton, gifButton;
   let butterflies = [];
 
@@ -29,12 +36,13 @@ export default function Sketch(p5, canvasRef, utilsRef, buttonRef, initCanvasSiz
       );
     }
 
-    let p = p5
-      .createP("Background colour:&nbsp;")
+    p5.createP("Background colour:&nbsp;")
       .style("display", "inline-block")
       .parent(utilsRef);
-
-    colourPicker = p5.createColorPicker("#f0f0f0").parent(utilsRef);
+    colourPicker = p5
+      .createColorPicker("#f0f0f0")
+      .style("cursor", "pointer")
+      .parent(utilsRef);
 
     imageButton = p5.createButton("Download as image").parent(buttonRef);
     imageButton.mousePressed(() => p5.saveCanvas("flutterfy.png"));
@@ -65,7 +73,9 @@ export default function Sketch(p5, canvasRef, utilsRef, buttonRef, initCanvasSiz
         0,
         canvasRef.offsetWidth
       );
-      butterflies[i].cy = p5.map(track.energy, 0, 1, 0, canvasRef.offsetWidth);
+      butterflies[i].cy =
+        canvasRef.offsetWidth -
+        p5.map(track.energy, 0, 1, 0, canvasRef.offsetWidth);
     }
 
     butterflies.forEach(function (butterfly) {
@@ -82,11 +92,19 @@ export default function Sketch(p5, canvasRef, utilsRef, buttonRef, initCanvasSiz
       this.size = 20 - rank0;
       this.wingspan = SIZE_BASE_TOP + this.size * 3;
       this.cx = p5.map(danceability, 0, 1, 0, canvasRef.offsetWidth);
-      this.cy = p5.map(energy, 0, 1, 0, canvasRef.offsetWidth);
+      this.cy =
+        canvasRef.offsetWidth - p5.map(energy, 0, 1, 0, canvasRef.offsetWidth);
+      // because y-axis goes down, but is traditionally read as going up
       this.topGradient = acousticness;
       this.bottomGradient = valence;
       this.speed = convertTempo(tempo);
       this.yoff = 0;
+    }
+
+    mouseOver() {
+      // crude experimentation
+      // TODO: account for top and bottom wings + animation
+      return p5.dist(this.cx, this.cy, p5.mouseX, p5.mouseY) < this.wingspan;
     }
 
     wingVertex(a, multiplier, offset) {
@@ -171,6 +189,10 @@ export default function Sketch(p5, canvasRef, utilsRef, buttonRef, initCanvasSiz
       ctx.fillStyle = grad;
 
       this.wings(0);
+      if (this.mouseOver()) {
+        // TODO: fix, currently not working
+        ctx.fillStyle = "#0000ff";
+      }
       p5.pop();
     }
   }
