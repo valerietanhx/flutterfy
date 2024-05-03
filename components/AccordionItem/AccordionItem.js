@@ -15,10 +15,12 @@ export default function AccordionItem(props) {
   useEffect(() => {
     const { height } = contentRef.current.getBoundingClientRect();
     collapseRef.current.style.maxHeight = `${height}px`;
+    collapseRef.current.style.padding = "1.5rem 2rem";
     titleRef.current.style.borderRadius = "12px 12px 0 0";
     if (!isExpanded) {
       requestAnimationFrame(() => {
         collapseRef.current.style.maxHeight = "0px";
+        collapseRef.current.style.padding = "0 2rem";
         titleRef.current.style.borderRadius = "12px";
         // not very clean, to fix
       });

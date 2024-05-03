@@ -76,6 +76,20 @@ export default function Accordion() {
           to get users' top tracks and their audio features.
         </p>
       </AccordionItem>
+      <AccordionItem title="Why butterflies?">
+        <p>
+          "Spotify" and "butterfly" sounded similar to me, so I thought a little
+          website with their portmanteau as its name would be nice. I was also
+          inspired by <a href="https://receiptify.herokuapp.com/">Receiptify</a>
+          , which visualises your Spotify top tracks as a receipt. From there
+          came the concept of visualising Spotify top tracks as butterflies!
+        </p>
+        <p>
+          Sadly, Spotify doesn't allow third-party apps to start with "Spot" or
+          sound / look like "Spotify", so I had to go for a different name.
+          Stuck with the concept, though!
+        </p>
+      </AccordionItem>
     </div>
   );
 }
