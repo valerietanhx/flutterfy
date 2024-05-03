@@ -75,6 +75,10 @@ export default function Accordion() {
           </a>{" "}
           to get users' top tracks and their audio features.
         </p>
+        <p>
+          For more details, you can check out the GitHub repo{" "}
+          <a href="https://github.com/valerietanhx/flutterfy">here</a>.
+        </p>
       </AccordionItem>
       <AccordionItem title="Why butterflies?">
         <p>
