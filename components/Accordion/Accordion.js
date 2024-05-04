@@ -45,14 +45,18 @@ export default function Accordion() {
             The butterfly's{" "}
             <span className={instrumentSans.className}>top wing colour</span>{" "}
             represents the track's{" "}
-            <span className={instrumentSans.className}>acousticness</span>.
+            <span className={instrumentSans.className}>acousticness</span>. The
+            higher the track's likeliness of being acoustic, the closer the top
+            wing colour is to the end of the rainbow.
           </li>
 
           <li>
             The butterfly's{" "}
             <span className={instrumentSans.className}>bottom wing colour</span>{" "}
             represents the track's{" "}
-            <span className={instrumentSans.className}>valence</span>.
+            <span className={instrumentSans.className}>valence</span> (musical
+            positiveness). The higher the track's valence, the closer the bottom
+            wing colour is to the end of the rainbow.
           </li>
 
           <li>
@@ -65,6 +69,14 @@ export default function Accordion() {
             the track, the faster the butterfly.
           </li>
         </ol>
+
+        <p>
+          You can learn more about the audio features Spotify provides in their{" "}
+          <a href="https://developer.spotify.com/documentation/web-api/reference/get-audio-features">
+            documentation
+          </a>
+          .
+        </p>
       </AccordionItem>
       <AccordionItem title="How was this website built?">
         <p>
@@ -76,8 +88,8 @@ export default function Accordion() {
           to get users' top tracks and their audio features.
         </p>
         <p>
-          For more details, you can check out the GitHub repo{" "}
-          <a href="https://github.com/valerietanhx/flutterfy">here</a>.
+          For more details, you can check out this site's{" "}
+          <a href="https://github.com/valerietanhx/flutterfy">GitHub repo</a> .
         </p>
       </AccordionItem>
       <AccordionItem title="Why butterflies?">
@@ -86,12 +98,12 @@ export default function Accordion() {
           website with their portmanteau as its name would be nice. I was also
           inspired by <a href="https://receiptify.herokuapp.com/">Receiptify</a>
           , which visualises your Spotify top tracks as a receipt. From there
-          came the concept of visualising Spotify top tracks as butterflies!
+          came the idea of visualising Spotify top tracks as butterflies!
         </p>
         <p>
           Sadly, Spotify doesn't allow third-party apps to start with "Spot" or
           sound / look like "Spotify", so I had to go for a different name.
-          Stuck with the concept, though!
+          Stuck with the concept, though :)
         </p>
       </AccordionItem>
     </div>
