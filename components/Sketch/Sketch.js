@@ -48,10 +48,22 @@ export default function Sketch(
     imageButton.mousePressed(() => p5.saveCanvas("flutterfy.png"));
 
     gifButton = p5.createButton("Download as gif").parent(buttonRef);
-    gifButton.mousePressed(() =>
-      // TODO: style
-      p5.saveGif("flutterfy.gif", 6, { notificationDuration: 5 })
-    );
+    gifButton.mousePressed(() => {
+      p5.saveGif("flutterfy.gif", 6, { notificationDuration: 5 });
+
+      const progressBar = p5.select("#progressBar");
+
+      progressBar
+        .style("position", "fixed")
+        .style("top", null)
+        .style("left", "0")
+        .style("bottom", "0")
+        .style("width", "100%")
+        .style("background-color", "var(--spotify-green)")
+        .style("border-radius", "0")
+        .style("text-align", "center")
+        .style("font-family", null);
+    });
   };
 
   p5.draw = () => {
