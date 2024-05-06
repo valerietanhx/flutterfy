@@ -2,7 +2,7 @@ import styles from "@/components/Accordion/accordion.module.css";
 import AccordionItem from "@/components/AccordionItem/AccordionItem";
 import { Instrument_Sans } from "next/font/google";
 
-const instrumentSans = Instrument_Sans({ weight: ["600"], subsets: ["latin"] });
+const instrumentSans = Instrument_Sans({ weight: "600", subsets: ["latin"] });
 
 export default function Accordion() {
   return (

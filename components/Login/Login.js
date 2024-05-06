@@ -1,6 +1,7 @@
 import styles from "@/components/Login/login.module.css";
 import { Instrument_Serif } from "next/font/google";
 import LoginButton from "@/components/LoginButton/LoginButton";
+import Modal from "@/components/Modal/Modal";
 
 const instrumentSerif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function Login() {
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠾⣿⣦⠀⠀⠹⣦⣠⡾⠈⢹⣷⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠓⠦⠤⠈⠿⠤⠴⠿⠿⠿⠿⠃⠀⠀⠀⠀⠀⠀⠀⠀
       </pre>
+      <Modal />
       <main className={styles.container}>
         <h1 className={`${instrumentSerif.className} ${styles.title}`}>
           Flutterfy

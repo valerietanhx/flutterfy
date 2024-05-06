@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "@/components/SketchContainer/sketchContainer.module.css";
 import Sketch from "@/components/Sketch/Sketch";
 
