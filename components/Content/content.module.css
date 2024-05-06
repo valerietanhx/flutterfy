@@ -12,7 +12,7 @@
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 0.5rem;
+  column-gap: 1rem;
 }
 
 @container (max-width: 449px) {
