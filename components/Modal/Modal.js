@@ -24,10 +24,10 @@ export default function Modal() {
           <p>
             This app is in{" "}
             <span className={instrumentSans.className}>development mode</span>.
-            This means that only 25 users can use it.
+            This means only 25 users can use it.
           </p>
           <p>
-            To try the app out, contact Valerie at{" "}
+            To try the app out, contact{" "}
             <a href="mailto:valerietanhx@gmail.com">valerietanhx@gmail.com</a>{" "}
             with the email associated with your Spotify account.
           </p>
