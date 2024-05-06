@@ -20,6 +20,16 @@
   font-size: 32px;
 }
 
+.closeButton {
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: 0.3s;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
 .modalButton {
   background-color: var(--maya-blue);
   width: fit-content;
@@ -31,7 +41,7 @@
   transition: 0.3s;
 }
 
-.modalButton:hover {
+.closeButton:hover, .modalButton:hover {
   filter: brightness(0.8);
 }
 

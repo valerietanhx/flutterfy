@@ -3,6 +3,8 @@
 import styles from "@/components/Modal/modal.module.css";
 import { Instrument_Serif, Instrument_Sans } from "next/font/google";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const instrumentSerif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
 const instrumentSans = Instrument_Sans({ weight: "600", subsets: ["latin"] });
@@ -18,6 +20,9 @@ export default function Modal() {
     open && (
       <>
         <dialog className={styles.modal}>
+          <button type="button" className={styles.closeButton} onClick={closeModal}>
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
           <h3 className={`${instrumentSerif.className} ${styles.greeting}`}>
             Hello!
           </h3>
