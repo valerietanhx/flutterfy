@@ -16,33 +16,21 @@ export default function useSpotifyApi(url, options, key, dependencies) {
             },
           };
 
-          fetch(url, newOptions)
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("An error occurred during fetching.");
-              } else {
-                return response;
-              }
-            })
-            .then((response) => response.json())
-            .then((json) => {
-              setData(json[key]);
-            });
-        } else if (!response.ok) {
-          throw new Error("An error occurred during fetching.");
-        } else {
-          return response;
+          return fetch(url, newOptions);
         }
+        return response;
       })
       .then((response) => {
-        if (response) {
-          return response.json();
+        if (!response.ok) {
+          throw new Error("An error occurred during fetching.");
         }
+        return response;
+      })
+      .then((response) => {
+        return response.json();
       })
       .then((json) => {
-        if (json) {
-          setData(json[key]);
-        }
+        setData(json[key]);
       });
   }, dependencies);
 
