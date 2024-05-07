@@ -40,7 +40,7 @@ export default function Sketch(
       .style("display", "inline-block")
       .parent(utilsRef);
     colourPicker = p5
-      .createColorPicker("#f0f0f0")
+      .createColorPicker("#f0f0f0") // var(--light-grey)
       .style("cursor", "pointer")
       .parent(utilsRef);
 

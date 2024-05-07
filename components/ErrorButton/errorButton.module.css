@@ -1,5 +1,5 @@
 .errorButton {
-  background-color: #f0f0f0;
+  background-color: var(--light-grey);
   text-align: center;
   width: fit-content;
   margin: auto;
