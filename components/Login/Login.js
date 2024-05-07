@@ -3,10 +3,13 @@ import { Instrument_Serif } from "next/font/google";
 import LoginButton from "@/components/LoginButton/LoginButton";
 import Modal from "@/components/Modal/Modal";
 import Banner from "@/components/Banner/Banner";
+import { getHasVisited } from "@/actions/getHasVisited";
 
 const instrumentSerif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
 
-export default function Login() {
+export default async function Login() {
+  const hasVisited = await getHasVisited();
+
   return (
     <>
       <pre className={styles.butterfly}>
@@ -31,7 +34,7 @@ export default function Login() {
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠾⣿⣦⠀⠀⠹⣦⣠⡾⠈⢹⣷⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠓⠦⠤⠈⠿⠤⠴⠿⠿⠿⠿⠃⠀⠀⠀⠀⠀⠀⠀⠀
       </pre>
-      <Modal />
+      {!hasVisited && <Modal />}
       <Banner />
       <main className={styles.container}>
         <h1 className={`${instrumentSerif.className} ${styles.title}`}>
