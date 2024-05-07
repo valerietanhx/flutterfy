@@ -6,6 +6,7 @@
 
 .title {
   font-size: max(100px, 12vw);
+  font-family: var(--font-instrument-serif);
 }
 
 .description {

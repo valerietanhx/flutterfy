@@ -1,9 +1,6 @@
-import { Instrument_Serif } from "next/font/google";
 import ErrorButton from "@/components/ErrorButton/ErrorButton";
 import Header from "@/components/Header/Header";
 import styles from "@/components/ErrorPage/errorPage.module.css";
-
-const instrumentSerif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
 
 export default function ErrorPage(props) {
   return (
@@ -44,7 +41,7 @@ export default function ErrorPage(props) {
           ></iframe>
         </div>
 
-        <h1 className={`${instrumentSerif.className} ${styles.error}`}>
+        <h1 className={styles.error}>
           {props.message}
         </h1>
 

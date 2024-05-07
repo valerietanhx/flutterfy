@@ -1,9 +1,6 @@
 import styles from "@/components/Content/content.module.css";
 import Accordion from "@/components/Accordion/Accordion";
 import Track from "@/components/Track/Track";
-import { Instrument_Serif } from "next/font/google";
-
-const instrumentSerif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
 
 export default function Content(props) {
   const tracks = props.tracks;
@@ -15,7 +12,7 @@ export default function Content(props) {
 
   return (
     <div className={styles.container}>
-      <h1 className={`${instrumentSerif.className} ${styles.title}`}>
+      <h1 className={styles.title}>
         Your top tracks as butterflies!
       </h1>
       <div className={styles.trackContainer}>

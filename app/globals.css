@@ -84,6 +84,10 @@ input[type="submit"] {
 
 /* global styling */
 
+html {
+  font-family: var(--font-instrument-sans);
+}
+
 body {
   padding: 2rem 4rem;
 }
@@ -94,6 +98,10 @@ canvas {
 
 a {
   text-decoration: underline;
+}
+
+.bold {
+  font-weight: 600;
 }
 
 @media (prefers-color-scheme: dark) {

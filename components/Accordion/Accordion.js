@@ -1,8 +1,5 @@
 import styles from "@/components/Accordion/accordion.module.css";
 import AccordionItem from "@/components/AccordionItem/AccordionItem";
-import { Instrument_Sans } from "next/font/google";
-
-const instrumentSans = Instrument_Sans({ weight: "600", subsets: ["latin"] });
 
 export default function Accordion() {
   return (
@@ -19,53 +16,53 @@ export default function Accordion() {
         <ol>
           <li>
             The butterfly's{" "}
-            <span className={instrumentSans.className}>size</span> represents
-            the track's <span className={instrumentSans.className}>rank</span>.
+            <span className="bold">size</span> represents
+            the track's <span className="bold">rank</span>.
             The higher the track's rank, the bigger the butterfly.
           </li>
 
           <li>
             The butterfly's{" "}
-            <span className={instrumentSans.className}>x-coordinate</span>{" "}
+            <span className="bold">x-coordinate</span>{" "}
             represents the track's{" "}
-            <span className={instrumentSans.className}>danceability</span>. The
+            <span className="bold">danceability</span>. The
             higher the track's danceability, the greater the x-coordinate of the
             butterfly.
           </li>
 
           <li>
             The butterfly's{" "}
-            <span className={instrumentSans.className}>y-coordinate</span>{" "}
+            <span className="bold">y-coordinate</span>{" "}
             represents the track's{" "}
-            <span className={instrumentSans.className}>energy</span>. The higher
+            <span className="bold">energy</span>. The higher
             the track's energy, the greater the y-coordinate of the butterfly.
           </li>
 
           <li>
             The butterfly's{" "}
-            <span className={instrumentSans.className}>top wing colour</span>{" "}
+            <span className="bold">top wing colour</span>{" "}
             represents the track's{" "}
-            <span className={instrumentSans.className}>acousticness</span>. The
+            <span className="bold">acousticness</span>. The
             higher the track's likeliness of being acoustic, the closer the top
             wing colour is to the end of the rainbow.
           </li>
 
           <li>
             The butterfly's{" "}
-            <span className={instrumentSans.className}>bottom wing colour</span>{" "}
+            <span className="bold">bottom wing colour</span>{" "}
             represents the track's{" "}
-            <span className={instrumentSans.className}>valence</span> (musical
+            <span className="bold">valence</span> (musical
             positiveness). The higher the track's valence, the closer the bottom
             wing colour is to the end of the rainbow.
           </li>
 
           <li>
             The butterfly's{" "}
-            <span className={instrumentSans.className}>
+            <span className="bold">
               wing-flapping speed
             </span>{" "}
             represents the track's{" "}
-            <span className={instrumentSans.className}>tempo</span>. The faster
+            <span className="bold">tempo</span>. The faster
             the track, the faster the butterfly.
           </li>
         </ol>

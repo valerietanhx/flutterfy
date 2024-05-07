@@ -1,14 +1,10 @@
 "use client";
 
 import styles from "@/components/Modal/modal.module.css";
-import { Instrument_Serif, Instrument_Sans } from "next/font/google";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { setHasVisited } from "@/actions/setHasVisited";
-
-const instrumentSerif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
-const instrumentSans = Instrument_Sans({ weight: "600", subsets: ["latin"] });
 
 export default function Modal() {
   const [open, setisOpen] = useState(true);
@@ -29,12 +25,12 @@ export default function Modal() {
           >
             <FontAwesomeIcon icon={faXmark} />
           </button>
-          <h3 className={`${instrumentSerif.className} ${styles.greeting}`}>
+          <h3 className={styles.greeting}>
             Hello!
           </h3>
           <p>
             This app is in{" "}
-            <span className={instrumentSans.className}>development mode</span>.
+            <span className="bold">development mode</span>.
             This means only 25 users can use it.
           </p>
           <p>

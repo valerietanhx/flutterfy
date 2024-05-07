@@ -17,6 +17,7 @@
 }
 
 .greeting {
+  font-family: var(--font-instrument-serif);
   font-size: 32px;
 }
 

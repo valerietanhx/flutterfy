@@ -10,6 +10,7 @@
 }
 
 .error {
+  font-family: var(--font-instrument-serif);
   font-size: 40px;
 }
 

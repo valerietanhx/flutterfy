@@ -1,8 +1,17 @@
-import { Instrument_Sans } from "next/font/google";
-
+import { Instrument_Serif, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({ weight: "400", subsets: ["latin"] });
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+});
+
+const instrumentSans = Instrument_Sans({
+  weight: ["400", "600"],
+  variable: "--font-instrument-sans",
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Flutterfy",
@@ -12,8 +21,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={instrumentSans.className}>{children}</body>
+    <html
+      lang="en"
+      className={`${instrumentSerif.variable} ${instrumentSans.variable}`}
+    >
+      <body>{children}</body>
     </html>
   );
 }
