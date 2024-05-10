@@ -16,6 +16,9 @@
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
+  margin-top: -1rem;
+  position: relative;
+  z-index: -1;
 }
 
 .content {

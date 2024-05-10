@@ -8,23 +8,22 @@ import { useState, useRef, useEffect } from "react";
 // lots of learning to be done here!
 export default function AccordionItem(props) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const titleRef = useRef(null);
-  const collapseRef = useRef(null);
-  const contentRef = useRef(null);
+  const titleRef = useRef();
+  const collapseRef = useRef();
+  const contentRef = useRef();
 
   useEffect(() => {
     const { height } = contentRef.current.getBoundingClientRect();
     collapseRef.current.style.maxHeight = `${height}px`;
-    collapseRef.current.style.padding = "1.5rem 2rem";
+    collapseRef.current.style.padding = "2.5rem 2rem 1.5rem 2rem";
+    collapseRef.current.style.marginBottom = "-1rem";
     titleRef.current.style.borderRadius = "12px 12px 0 0";
     if (!isExpanded) {
       requestAnimationFrame(() => {
         collapseRef.current.style.maxHeight = "0px";
         collapseRef.current.style.padding = "0 2rem";
+        collapseRef.current.style.marginBottom = "0";
         titleRef.current.style.borderRadius = "12px";
-        // TODO: make transition cleaner. right now u can see a gap between
-        // the title and content as the title's border radius changes
-        // when the accordion item is closing
       });
     }
   }, [isExpanded]);
