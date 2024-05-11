@@ -2,11 +2,8 @@ import styles from "@/components/Login/login.module.css";
 import LoginButton from "@/components/LoginButton/LoginButton";
 import Modal from "@/components/Modal/Modal";
 import Banner from "@/components/Banner/Banner";
-import { getHasVisited } from "@/actions/getHasVisited";
 
 export default async function Login() {
-  const hasVisited = await getHasVisited();
-
   return (
     <>
       <pre className={styles.butterfly}>
@@ -31,12 +28,10 @@ export default async function Login() {
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠾⣿⣦⠀⠀⠹⣦⣠⡾⠈⢹⣷⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠓⠦⠤⠈⠿⠤⠴⠿⠿⠿⠿⠃⠀⠀⠀⠀⠀⠀⠀⠀
       </pre>
-      {!hasVisited && <Modal />}
+      <Modal /> {/* rendered if hasVisited not in localStorage */}
       <Banner />
       <main className={styles.container}>
-        <h1 className={styles.title}>
-          Flutterfy
-        </h1>
+        <h1 className={styles.title}>Flutterfy</h1>
         <h2 className={styles.description}>
           Visualise your Spotify top tracks as butterflies.
         </h2>

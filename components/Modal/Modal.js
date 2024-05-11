@@ -4,14 +4,13 @@ import styles from "@/components/Modal/modal.module.css";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { setHasVisited } from "@/actions/setHasVisited";
 
 export default function Modal() {
-  const [open, setisOpen] = useState(true);
+  const [open, setisOpen] = useState(!localStorage.getItem("hasVisited"));
 
   const closeModal = async () => {
     setisOpen((open) => !open);
-    await setHasVisited();
+    localStorage.setItem("hasVisited", true);
   };
 
   return (
@@ -25,13 +24,10 @@ export default function Modal() {
           >
             <FontAwesomeIcon icon={faXmark} />
           </button>
-          <h3 className={styles.greeting}>
-            Hello!
-          </h3>
+          <h3 className={styles.greeting}>Hello!</h3>
           <p>
-            This app is in{" "}
-            <span className="bold">development mode</span>.
-            This means only 25 users can use it.
+            This app is in <span className="bold">development mode</span>. This
+            means only 25 users can use it.
           </p>
           <p>
             To try the app out, contact{" "}
