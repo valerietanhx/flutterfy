@@ -1,12 +1,17 @@
 "use client";
 
 import styles from "@/components/Modal/modal.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function Modal() {
-  const [open, setisOpen] = useState(!localStorage.getItem("hasVisited"));
+  const [open, setisOpen] = useState(false);
+
+  useEffect(() => {
+    const hasVisited = localStorage.getItem("hasVisited");
+    setisOpen(!hasVisited);
+  }, []);
 
   const closeModal = async () => {
     setisOpen((open) => !open);
