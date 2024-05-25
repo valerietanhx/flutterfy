@@ -4,6 +4,7 @@ import Track from "@/components/Track/Track";
 
 export default function Content(props) {
   const tracks = props.tracks;
+  const urls = tracks.map((track) => track["external_urls"]["spotify"]);
   const titles = tracks.map((track) => track["name"]);
   const artists = tracks
     .map((s) => s["artists"])
@@ -12,9 +13,7 @@ export default function Content(props) {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>
-        Your top tracks as butterflies!
-      </h1>
+      <h1 className={styles.title}>Your top tracks as butterflies!</h1>
       <div className={styles.trackContainer}>
         {titles.map((title, idx) => (
           <Track
@@ -22,6 +21,7 @@ export default function Content(props) {
             rank={idx + 1}
             title={title}
             artist={artists[idx]}
+            url={urls[idx]}
           />
         ))}
       </div>

@@ -113,12 +113,6 @@ export default function Sketch(
       this.yoff = 0;
     }
 
-    mouseOver() {
-      // crude experimentation
-      // TODO: account for top and bottom wings + animation
-      return p5.dist(this.cx, this.cy, p5.mouseX, p5.mouseY) < this.wingspan;
-    }
-
     wingVertex(a, multiplier, offset) {
       let r = Math.sin(2 * a) * multiplier;
       let x = Math.sin(this.yoff) * r * Math.cos(a);
@@ -201,10 +195,7 @@ export default function Sketch(
       ctx.fillStyle = grad;
 
       this.wings(0);
-      if (this.mouseOver()) {
-        // TODO: fix, currently not working
-        ctx.fillStyle = "#0000ff";
-      }
+
       p5.pop();
     }
   }
