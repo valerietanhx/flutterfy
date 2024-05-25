@@ -14,16 +14,16 @@ export default function AccordionItem(props) {
 
   useEffect(() => {
     const { height } = contentRef.current.getBoundingClientRect();
-    collapseRef.current.style.maxHeight = `${height}px`;
-    collapseRef.current.style.padding = "2.5rem 2rem 1.5rem 2rem";
-    collapseRef.current.style.marginBottom = "-1rem";
-    titleRef.current.style.borderRadius = "12px 12px 0 0";
+    collapseRef.current.style.maxHeight = `calc(${height}px + 5rem)`;
+    collapseRef.current.style.padding = "3rem 2rem 2rem 2rem";
+    collapseRef.current.style.marginBottom = "0";
+    titleRef.current.style.borderRadius = "8px 8px 0 0";
     if (!isExpanded) {
       requestAnimationFrame(() => {
         collapseRef.current.style.maxHeight = "0px";
         collapseRef.current.style.padding = "0 2rem";
-        collapseRef.current.style.marginBottom = "0";
-        titleRef.current.style.borderRadius = "12px";
+        collapseRef.current.style.marginBottom = "1rem";
+        titleRef.current.style.borderRadius = "8px";
       });
     }
   }, [isExpanded]);

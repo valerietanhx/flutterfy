@@ -1,25 +1,51 @@
-.container {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-}
-
 .title {
-  font-size: max(100px, 12vw);
+  font-size: max(64px, 12vw);
   font-family: var(--font-instrument-serif);
+  position: relative;
 }
 
 .description {
-  font-size: max(16px, 1.92vw);
+  font-size: max(16px, 2vw);
 }
+/* the worst code in this entire codebase!! i am sorry :(
+  wrestling with this ascii art has been awful...
+  would appreciate any tips */
 
 .butterfly {
   width: 0;
-  position: absolute;
-  top: 20%;
-  left: max(300px, 36%);
+  display: inline-block;
   white-space: pre-wrap;
-  font-size: max(0.25rem, 0.6vw);
+  font-size: max(4px, 0.6vw);
   color: #d0d0d0;
   user-select: none;
+}
+
+.centralisedButterfly {
+  display: none;
+}
+
+.rightButterfly {
+  position: absolute;
+  bottom: 20%;
+  left: calc(4px + 30vw);
+  margin-left: 8px;
+}
+
+@media (max-width: 475px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .centralisedButterfly {
+    display: inline-block;
+    width: 200px;
+  }
+
+  .rightButterfly {
+    display: none;
+  }
 }

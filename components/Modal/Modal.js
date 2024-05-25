@@ -2,8 +2,6 @@
 
 import styles from "@/components/Modal/modal.module.css";
 import { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function Modal() {
   const [open, setisOpen] = useState(false);
@@ -22,13 +20,6 @@ export default function Modal() {
     open && (
       <>
         <dialog className={styles.modal}>
-          <button
-            type="button"
-            className={styles.closeButton}
-            onClick={closeModal}
-          >
-            <FontAwesomeIcon icon={faXmark} />
-          </button>
           <h3 className={styles.greeting}>Hello!</h3>
           <p>
             This app is in <span className="bold">development mode</span>. This

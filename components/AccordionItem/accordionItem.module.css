@@ -2,7 +2,6 @@
   background-color: var(--maya-blue);
   padding: 1rem 2rem;
   cursor: pointer;
-  border-radius: 8px;
   transition: border-radius 0.3s ease-in-out, 0.3s;
 }
 
@@ -12,8 +11,7 @@
 
 .contentWrapper {
   background-color: var(--light-blue);
-  border-radius: 0 0 12px 12px;
-  max-height: 0;
+  border-radius: 0 0 8px 8px;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   margin-top: -1rem;

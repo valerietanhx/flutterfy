@@ -1,3 +1,8 @@
+.outerContainer {
+  /* override body's justify-content, which was done to centralise Login.js */
+  margin-bottom: auto;
+}
+
 .container {
   display: flex;
   gap: 2rem;

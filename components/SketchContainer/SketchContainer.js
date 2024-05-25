@@ -41,7 +41,7 @@ export default function SketchContainer({ data }) {
             canvasRef.current,
             utilsRef.current,
             buttonRef.current,
-            Math.min(550, 0.8 * window.innerWidth),
+            Math.min(624, 0.8 * window.innerWidth),
             data
           );
           p5instance = p;

@@ -36,7 +36,7 @@ export default function Butterflies(props) {
 
   return (
     audioFeatures && (
-      <>
+      <div className={styles.outerContainer}>
         <Header>
           <LogoutButton />
         </Header>
@@ -45,7 +45,7 @@ export default function Butterflies(props) {
           <Content tracks={topTracks} />
         </main>
         <Footer />
-      </>
+      </div>
     )
   );
 }

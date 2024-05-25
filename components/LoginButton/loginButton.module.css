@@ -1,13 +1,8 @@
 .loginButton {
   background-color: var(--spotify-green);
-  text-align: center;
-  padding: 16px 32px;
-  margin-top: 20px;
+  padding: max(16px, 1.5vw) max(32px, 3vw);
+  margin-top: max(20px, 1.875vw);
   border-radius: 400px;
-  font-size: 16px;
+  font-size: max(16px, 1.5vw);
   transition: 0.3s;
-}
-
-.loginButton:hover {
-  filter: brightness(0.8);
 }
