@@ -86,7 +86,7 @@ export default function Accordion() {
         </p>
         <p>
           For more details, you can check out this site's{" "}
-          <a href="https://github.com/valerietanhx/flutterfy">GitHub repo</a> .
+          <a href="https://github.com/valerietanhx/flutterfy">GitHub repo</a>.
         </p>
       </AccordionItem>
       <AccordionItem title="Why butterflies?">

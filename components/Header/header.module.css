@@ -10,3 +10,9 @@
   font-size: 30px;
   font-family: var(--font-instrument-serif);
 }
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 0;
+  }
+}

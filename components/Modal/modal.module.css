@@ -6,7 +6,7 @@
   top: 50%;
   transform: translate(0, -50%);
   z-index: 2;
-  width: 275px;
+  width: max(160px, 24vw);
   padding: 4rem;
   display: flex;
   flex-direction: column;
@@ -14,21 +14,22 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-size: max(16px, 1vw);
 }
 
 .greeting {
   font-family: var(--font-instrument-serif);
-  font-size: 32px;
+  /* font-size: 32px; */
+  font-size: max(32px, 2vw);
 }
 
 .modalButton {
   background-color: var(--maya-blue);
   width: fit-content;
-  text-align: center;
-  padding: 16px 32px;
-  margin-top: 20px;
+  padding: max(16px, 1vw) max(32px, 2vw);
+  margin-top: max(20px, 1.25vw);
   border-radius: 400px;
-  font-size: 16px;
+  font-size: max(16px, 1vw);
   transition: 0.3s;
 }
 
