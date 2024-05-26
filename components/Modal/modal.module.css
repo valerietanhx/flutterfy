@@ -19,7 +19,6 @@
 
 .greeting {
   font-family: var(--font-instrument-serif);
-  /* font-size: 32px; */
   font-size: max(32px, 2vw);
 }
 

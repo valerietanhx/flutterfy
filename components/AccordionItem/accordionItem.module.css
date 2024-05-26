@@ -14,7 +14,7 @@
   border-radius: 0 0 8px 8px;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
-  margin-top: -1rem;
+  margin-top: -1rem; /* to avoid gap between title and content during animation */
   position: relative;
   z-index: -1;
 }
