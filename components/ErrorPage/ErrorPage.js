@@ -4,7 +4,7 @@ import styles from "@/components/ErrorPage/errorPage.module.css";
 
 export default function ErrorPage(props) {
   return (
-    <>
+    <div className={styles.outerContainer}>
       <Header>
         <pre className={styles.butterfly}>
           ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⠀
@@ -47,6 +47,6 @@ export default function ErrorPage(props) {
 
         <ErrorButton>{props.buttonMessage}</ErrorButton>
       </div>
-    </>
+    </div>
   );
 }

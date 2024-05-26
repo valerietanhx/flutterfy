@@ -1,14 +1,9 @@
 .errorButton {
   background-color: var(--light-grey);
-  text-align: center;
   width: fit-content;
   margin: auto;
-  padding: 16px 32px;
+  padding: max(16px, 1.5vw) max(32px, 3vw);
   border-radius: 400px;
-  font-size: 16px;
+  font-size: max(16px, 1.5vw);
   transition: 0.3s;
-}
-
-.errorButton:hover {
-  filter: brightness(0.8);
 }
