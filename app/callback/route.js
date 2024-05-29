@@ -1,8 +1,9 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
+import { getBaseUrl } from "@/utils/getBaseUrl";
 
 export async function GET(req) {
-  const { CLIENT_ID, CLIENT_SECRET, BASE_URL } = process.env;
+  const { CLIENT_ID, CLIENT_SECRET } = process.env;
   const stateKey = "spotify_auth_state";
 
   const code = req.nextUrl.searchParams.get("code") || null;
@@ -27,7 +28,7 @@ export async function GET(req) {
       },
       body: new URLSearchParams({
         code: code,
-        redirect_uri: BASE_URL + "/callback",
+        redirect_uri: getBaseUrl() + "/callback",
         grant_type: "authorization_code",
       }),
     };
@@ -45,6 +46,6 @@ export async function GET(req) {
     cookies().set("access_token", accessToken, { secure: true });
     cookies().set("refresh_token", refreshToken, { secure: true });
 
-    return NextResponse.redirect(new URL("/", BASE_URL));
+    return NextResponse.redirect(new URL("/", getBaseUrl()));
   }
 }

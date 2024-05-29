@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
+import { getBaseUrl } from "@/utils/getBaseUrl";
 
 function generateRandomStateString(length) {
   let text = "";
@@ -12,7 +13,7 @@ function generateRandomStateString(length) {
 }
 
 export async function GET() {
-  const { CLIENT_ID, BASE_URL } = process.env;
+  const { CLIENT_ID } = process.env;
 
   const state = generateRandomStateString(16);
   const scopes = ["user-top-read"];
@@ -26,7 +27,7 @@ export async function GET() {
           response_type: "code",
           client_id: CLIENT_ID,
           scope: scopes.join(" "),
-          redirect_uri: BASE_URL + "/callback",
+          redirect_uri: getBaseUrl() + "/callback",
           state: state,
         }).toString()
     )
