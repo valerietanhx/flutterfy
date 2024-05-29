@@ -98,6 +98,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: #fff; /* i have not yet implemented dark mode TT */
 }
 
 canvas {
