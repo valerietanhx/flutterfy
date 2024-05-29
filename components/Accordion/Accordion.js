@@ -15,55 +15,43 @@ export default function Accordion() {
         </p>
         <ol>
           <li>
-            The butterfly's{" "}
-            <span className="bold">size</span> represents
-            the track's <span className="bold">rank</span>.
-            The higher the track's rank, the bigger the butterfly.
+            The butterfly's <span className="bold">size</span> represents the
+            track's <span className="bold">rank</span>. The higher the track's
+            rank, the bigger the butterfly.
           </li>
 
           <li>
-            The butterfly's{" "}
-            <span className="bold">x-coordinate</span>{" "}
-            represents the track's{" "}
-            <span className="bold">danceability</span>. The
-            higher the track's danceability, the greater the x-coordinate of the
+            The butterfly's <span className="bold">x-coordinate</span>{" "}
+            represents the track's <span className="bold">danceability</span>.
+            The higher the track's danceability, the greater the x-coordinate of
+            the butterfly.
+          </li>
+
+          <li>
+            The butterfly's <span className="bold">y-coordinate</span>{" "}
+            represents the track's <span className="bold">energy</span>. The
+            higher the track's energy, the greater the y-coordinate of the
             butterfly.
           </li>
 
           <li>
-            The butterfly's{" "}
-            <span className="bold">y-coordinate</span>{" "}
-            represents the track's{" "}
-            <span className="bold">energy</span>. The higher
-            the track's energy, the greater the y-coordinate of the butterfly.
+            The butterfly's <span className="bold">top wing colour</span>{" "}
+            represents the track's <span className="bold">acousticness</span>.
+            The higher the track's likeliness of being acoustic, the closer the
+            top wing colour is to the end of the rainbow.
           </li>
 
           <li>
-            The butterfly's{" "}
-            <span className="bold">top wing colour</span>{" "}
-            represents the track's{" "}
-            <span className="bold">acousticness</span>. The
-            higher the track's likeliness of being acoustic, the closer the top
-            wing colour is to the end of the rainbow.
+            The butterfly's <span className="bold">bottom wing colour</span>{" "}
+            represents the track's <span className="bold">valence</span>{" "}
+            (musical positiveness). The higher the track's valence, the closer
+            the bottom wing colour is to the end of the rainbow.
           </li>
 
           <li>
-            The butterfly's{" "}
-            <span className="bold">bottom wing colour</span>{" "}
-            represents the track's{" "}
-            <span className="bold">valence</span> (musical
-            positiveness). The higher the track's valence, the closer the bottom
-            wing colour is to the end of the rainbow.
-          </li>
-
-          <li>
-            The butterfly's{" "}
-            <span className="bold">
-              wing-flapping speed
-            </span>{" "}
-            represents the track's{" "}
-            <span className="bold">tempo</span>. The faster
-            the track, the faster the butterfly.
+            The butterfly's <span className="bold">wing-flapping speed</span>{" "}
+            represents the track's <span className="bold">tempo</span>. The
+            faster the track, the faster the butterfly.
           </li>
         </ol>
 
@@ -94,13 +82,15 @@ export default function Accordion() {
           "Spotify" and "butterfly" sounded similar to me, so I thought a little
           website with their portmanteau as its name would be nice. I was also
           inspired by <a href="https://receiptify.herokuapp.com/">Receiptify</a>
-          , which visualises your Spotify top tracks as a receipt. From there
+          , which visualises your Spotify top tracks as a receipt, and generally
+          interested in pursuing a data art / visualisation project. From there
           came the idea of visualising Spotify top tracks as butterflies!
         </p>
         <p>
           Sadly, Spotify doesn't allow third-party apps to start with "Spot" or
-          sound / look like "Spotify", so I had to go for a different name.
-          Stuck with the concept, though :)
+          sound / look like "Spotify", so I had to go for a different name that
+          doesn't sound like a portmanteau of "Spotify" and "butterfly". Stuck
+          with the concept, though :)
         </p>
       </AccordionItem>
     </div>
