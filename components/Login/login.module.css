@@ -20,7 +20,7 @@
   display: inline-block;
   white-space: pre-wrap;
   font-size: max(4px, 0.6vw);
-  color: #d0d0d0;
+  color: var(--medium-grey);
   user-select: none;
 }
 
