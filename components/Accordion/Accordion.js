@@ -79,7 +79,7 @@ export default function Accordion() {
       </AccordionItem>
       <AccordionItem title="Why butterflies?">
         <p>
-          "Spotify" and "butterfly" sounded similar to me, so I thought a little
+          "Spotify" and "butterfly" sounded similar to me, so I thought a
           website with their portmanteau as its name would be nice. I was also
           inspired by <a href="https://receiptify.herokuapp.com/">Receiptify</a>
           , which visualises your Spotify top tracks as a receipt, and generally

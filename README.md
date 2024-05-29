@@ -10,7 +10,7 @@ _You can learn more about the process of building this website in [PROCESS.md](P
 
 ## Why?
 
-"Spotify" and "butterfly" sounded similar to me, so I thought a little website with their portmanteau as its name would be nice. I was also inspired by [Receiptify](https://receiptify.herokuapp.com/), which visualises your Spotify top tracks as a receipt, and generally interested in pursuing a data art / visualisation project. From there came the idea of visualising Spotify top tracks as butterflies!
+"Spotify" and "butterfly" sounded similar to me, so I thought a website with their portmanteau as its name would be nice. I was also inspired by [Receiptify](https://receiptify.herokuapp.com/), which visualises your Spotify top tracks as a receipt, and generally interested in pursuing a data art / visualisation project. From there came the idea of visualising Spotify top tracks as butterflies!
 
 Sadly, Spotify doesn't allow third-party apps to start with "Spot" or sound / look like "Spotify", so I had to go for a different name that doesn't sound like a portmanteau of "Spotify" and "butterfly". Stuck with the concept, though :)
 
