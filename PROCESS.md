@@ -35,7 +35,7 @@ this starts out as a list of the packages i used, LOL. but there's more, i promi
 - **p5.js** for creating graphics! i think this was the hardest thing to pick up because there was relatively little documentation on doing more complex things with it, scattered about random youtube videos.
   - in particular, it was a struggle getting each butterfly to have a unique gradient, which required the use of push() and pop().
   - making the canvas responsive was also tough! the solutions i found online resized the canvas but not the elements in the canvas (i.e. in my case, the butterflies would go beyond the canvas border and out of sight if the screen was smaller). i used their solution as a foundation, then fiddled around myself to figure out how to make the butterflies responsive as well.
-- i adored working with **css modules**! somehow this time smth clicked and now i understnad how to work with them + appreciate them as a clean way to organise css :D
+- i adored working with **css modules**! somehow this time smth clicked and now i understand how to work with them + appreciate them as a clean way to organise css :D
 - the **oauth2** authorisation code flow! took me ages to figure out how to check for access token expiry and use a refresh token... :p
 
 ## Areas for improvement
