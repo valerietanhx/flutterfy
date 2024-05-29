@@ -35,7 +35,7 @@ export default function ErrorPage(props) {
             className={styles.errorSpotifyEmbed}
             src={props.spotifyEmbedUrl}
             frameBorder="0"
-            allowfullscreen=""
+            allowFullScreen=""
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>

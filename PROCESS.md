@@ -4,6 +4,7 @@ hello! i wasn't planning on writing a full process doc that walks through ideati
 
 - [integrating p5.js into next.js](components/SketchContainer/SketchContainer.js)
 - [animating accordion items](components/AccordionItem/AccordionItem.js)
+- [making a responsive p5.js sketch / setting different gradients for different objects](components/Sketch/Sketch.js)
 
 i thought it would still be nice, though, to have something to document my thoughts on building this website - hence this quick, informal doc :)
 
@@ -44,3 +45,4 @@ some things i think could be improved, beyond product enhancements / adding feat
 - **responsiveness s.t. proportions are preserved.** i think in general i'd like to learn more about how to implement responsiveness well, e.g. should i just use more media queries? or is the way i attempted to do it here better (mainly using vw, max, and min)?
 - the **design system** could've been set up better! e.g. having set values for border-radius, font-size, etc. throughout. i am happy with how the colours are set as css variables but everything else is just hardcoded in each css module file, which isn't great for maintenance.
 - **make better use of client/server components!** in particular, the Butterflies component could be written as a server component since the only interactivity (that necessitates it being a client component) really only comes from the buttons + accordion, but it's a client component because i converted api calls into a hook that relies on useState + useEffect. turns out using an effect [isn't the best way to fetch data](https://react.dev/learn/you-might-not-need-an-effect)... i also suspect that if i were to extend the project s.t. users can pick between short-term, medium-term and long-term top tracks, having the Butterflies component be a client component might cause issues with rerendering, though i haven't confirmed this yet.
+- better **organisation of components**. for instance, ErrorButton, LoginButton, and LogoutButton must be quite similar: i wonder if i should have them inherit from some sort of BasicButton, but i accomplish abstracting out common styles by applying them globally to all button elements instead. is that the best thing to do? also, some of my html/css is quite hacky bc i couldn't figure out a better way to accomplish what i wanted, e.g. the duplicate butterflies in the login page :,)

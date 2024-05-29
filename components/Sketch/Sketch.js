@@ -154,6 +154,11 @@ export default function Sketch(
     }
 
     shadow() {
+      // https://p5js.org/reference/#/p5/push
+      // push() and pop() "limit the effect of styles and transformations
+      // to a specific group of shapes, images, and text"
+      // push() saves the current drawing style settings and transformations,
+      // while pop() restores these settings
       p5.push();
 
       p5.strokeWeight(0);
@@ -176,6 +181,8 @@ export default function Sketch(
 
     display() {
       this.shadow();
+
+      // see above for what push() and pop() do
       p5.push();
 
       const grad = ctx.createLinearGradient(
