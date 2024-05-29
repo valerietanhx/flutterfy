@@ -10,7 +10,7 @@ export default function Accordion() {
 
       <AccordionItem title="How does the visualisation work?">
         <p>
-          Each butterfly corresponds to a top track and seven of its audio
+          Each butterfly corresponds to a top track and six of its audio
           features provided by Spotify.
         </p>
         <ol>
