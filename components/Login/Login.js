@@ -1,14 +1,11 @@
 import styles from "@/components/Login/login.module.css";
 import LoginButton from "@/components/LoginButton/LoginButton";
-import Modal from "@/components/Modal/Modal";
-import Banner from "@/components/Banner/Banner";
 
 export default async function Login() {
   return (
     <>
-      <Modal /> {/* rendered if hasVisited not in localStorage */}
-      <Banner />
       <main className={styles.container}>
+        {/* TODO: clean up this code... */}
         {/* rendered for smaller screen sizes */}
         <pre className={`${styles.butterfly} ${styles.centralisedButterfly}`}>
           ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⠀
