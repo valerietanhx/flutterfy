@@ -4,8 +4,6 @@
 
 A website that visualises a user's Spotify top tracks as butterflies. Written with [Next.js](https://nextjs.org/) and [p5.js](https://p5js.org/).
 
-_Note: This app is in **development mode**. This means only 25 users can use it. To try the app out, contact [valerietanhx@gmail.com](mailto:valerietanhx@gmail.com) with the email associated with your Spotify account. Awaiting approval from Spotify to be moved to extended quota mode! :)_
-
 _You can learn more about the process of building this website in [PROCESS.md](PROCESS.md)._
 
 ## Why?
