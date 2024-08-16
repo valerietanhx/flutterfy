@@ -17,6 +17,34 @@ export const metadata = {
   title: "Flutterfy",
   description:
     "A website that visualises your Spotify top tracks as butterflies.",
+  openGraph: {
+    title: "Flutterfy",
+    description:
+      "A website that visualises your Spotify top tracks as butterflies.",
+    url: "https://flutterfy-viz.vercel.app/",
+    siteName: "Flutterfy",
+    type: "website",
+    images: [
+      {
+        url: "https://raw.githubusercontent.com/valerietanhx/flutterfy/main/app/og-card.png",
+        secureUrl:
+          "https://raw.githubusercontent.com/valerietanhx/flutterfy/main/app/og-card.png",
+        width: 1200,
+        height: 628,
+        alt: "Preview image for Flutterfy",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Flutterfy",
+    description:
+      "A website that visualises your Spotify top tracks as butterflies.",
+    images: {
+      url: "https://raw.githubusercontent.com/valerietanhx/flutterfy/main/app/og-card.png",
+      alt: "Preview image for Flutterfy",
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
